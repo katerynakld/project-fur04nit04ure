@@ -23,9 +23,7 @@ body {
   background-color: #ffffff;
 }
 
-.icon {
-  fill: #080c09;
-}
+/* transition: property-name 250ms cubic-bezier(0.77,0,0.18,1); */
 
 .visually-hidden {
   position: absolute;
