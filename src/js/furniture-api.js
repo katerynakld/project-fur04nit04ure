@@ -7,8 +7,7 @@ export async function getDataByQuery(endPoint) {
   try {
     // showLoader();   
     const response = await axios(`${BASE_URL}${endPoint}`);
-    // hideLoader();
-    console.log(response.data);
+    // hideLoader()
     return response.data;
     
   } catch(error) { 
