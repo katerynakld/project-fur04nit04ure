@@ -45,19 +45,3 @@ body {
   font-family: 'Raleway Italic';
   src: url(../fonts/Raleway-Italic-VariableFont_wght.ttf);
 }
-
-/* Repeating styles */
-
-/* h2 */
-.secondary-heading {
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 120%;
-  letter-spacing: 0.01em;
-}
-
-.body-text {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 160%;
-}
