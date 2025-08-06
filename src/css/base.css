@@ -23,6 +23,10 @@ body {
   background-color: #ffffff;
 }
 
+.icon {
+  fill: #080c09;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
