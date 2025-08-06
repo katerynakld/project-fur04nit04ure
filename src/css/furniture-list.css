@@ -1,0 +1,17 @@
+.show-more-button {
+  width: 421px;
+  background-color: #6b0609;
+  color: #fff;
+  height: 46px;
+  box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 var(--opacity-white-5);
+  border: 1.5px solid var(--color-madang);
+  border-radius: 100px;
+  padding: 10px 24px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160%;
+}
