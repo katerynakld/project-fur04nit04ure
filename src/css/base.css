@@ -8,6 +8,12 @@
   -webkit-text-size-adjust: 100%;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -17,6 +23,8 @@ body {
   min-height: 100vh;
   margin: 0;
   font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
   color: #080c09;
   background-color: #ffffff;
 }
@@ -36,14 +44,10 @@ body {
   border: 0;
 }
 
-@font-face {
-  font-family: 'Raleway Normal';
-  src: url(../fonts/Raleway-VariableFont_wght.ttf);
-}
-
-@font-face {
-  font-family: 'Raleway Italic';
-  src: url(../fonts/Raleway-Italic-VariableFont_wght.ttf);
+.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* Repeating styles */
