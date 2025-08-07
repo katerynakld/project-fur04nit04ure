@@ -1,3 +1,7 @@
+/* ===============================================
+   BASE STYLES (Common for all devices)
+   =============================================== */
+
 /* Header */
 .header {
   background: var(--white);
@@ -12,18 +16,16 @@
 .header-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 26px;
   font-weight: bold;
   color: #333;
   text-decoration: none;
@@ -40,16 +42,11 @@
   transition: fill 0.3s ease;
 }
 
-.nav-actions {
-  display: flex;
-  align-items: center;
-}
-
+/* Desktop Navigation */
 .nav {
   display: flex;
   list-style: none;
   gap: 40px;
-  margin-right: 32px;
 }
 
 .nav-link {
@@ -90,6 +87,7 @@
   }
 }
 
+/* CTA Button */
 .cta-button {
   background: #8b1538;
   color: #ffffff;
@@ -111,7 +109,7 @@
   box-shadow: 0 6px 16px rgba(139, 21, 56, 0.4);
 }
 
-/* Burger menu */
+/* Burger Menu Button */
 .burger {
   display: none;
   cursor: pointer;
@@ -137,6 +135,10 @@
   fill: #555;
 }
 
+/* ===============================================
+   MOBILE MENU STYLES (All mobile devices)
+   =============================================== */
+
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -146,14 +148,65 @@
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   transition: right 0.3s ease;
   z-index: 999;
 }
 
 .mobile-menu.active {
   right: 0;
+}
+
+/* Mobile Menu Header */
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  height: 56px;
+  min-height: 56px;
+}
+
+.mobile-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.mobile-logo-icon {
+  fill: currentColor;
+}
+
+.close-menu {
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+.close-icon {
+  width: 24px;
+  height: 24px;
+  fill: #333;
+  transition: fill 0.3s ease;
+}
+
+.close-menu:hover .close-icon {
+  fill: #555;
+}
+
+/* Mobile Menu Content */
+.mobile-menu-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 32px;
 }
 
 .mobile-nav {
@@ -202,28 +255,6 @@
   transform: scaleX(1);
 }
 
-.close-menu {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  cursor: pointer;
-  padding: 8px;
-  background: none;
-  border: none;
-  transition: color 0.3s ease;
-}
-
-.close-icon {
-  width: 24px;
-  height: 24px;
-  fill: #333;
-  transition: fill 0.3s ease;
-}
-
-.close-menu:hover .close-icon {
-  fill: #555;
-}
-
 .mobile-cta-button {
   background: #8b1538;
   color: #ffffff;
@@ -248,53 +279,9 @@
   box-shadow: 0 6px 16px rgba(139, 21, 56, 0.4);
 }
 
-/* Responsive design */
-@media (max-width: 1439px) {
-  .header-container {
-    max-width: 100%;
-    padding: 0 32px;
-  }
-}
-
-/* Mobile - від 375px до 767px */
-@media (min-width: 375px) and (max-width: 767px) {
-  .header-container {
-    padding: 0 20px;
-  }
-}
-
-/* Tablet - від 768px до 1439px */
-@media (min-width: 768px) and (max-width: 1439px) {
-  .header-container {
-    padding: 0 32px;
-  }
-
-  .mobile-menu {
-    width: 400px;
-  }
-}
-
-/* Mobile та Tablet - від 375px до 1439px */
-@media (max-width: 1439px) {
-  .nav-actions {
-    display: none;
-  }
-
-  .burger {
-    display: flex;
-  }
-}
-
-/* Desktop - від 1440px */
-@media (min-width: 1440px) {
-  .nav-actions {
-    display: flex;
-  }
-
-  .burger {
-    display: none;
-  }
-}
+/* ===============================================
+   UTILITY STYLES
+   =============================================== */
 
 /* Smooth scrolling */
 html {
@@ -310,4 +297,150 @@ body.menu-open {
 .mobile-menu.active ~ .header-container .burger {
   opacity: 0;
   pointer-events: none;
+}
+
+/* ===============================================
+   RESPONSIVE BREAKPOINTS
+   =============================================== */
+
+/* ===============================================
+   MOBILE VERSION (375px - 767px)
+   =============================================== */
+@media (min-width: 375px) and (max-width: 767px) {
+  /* Header */
+  .header-container {
+    padding: 0 20px;
+    height: 72px;
+  }
+
+  /* Logo */
+  .logo {
+    font-size: 22px;
+  }
+
+  /* Hide desktop elements */
+  .nav {
+    display: none;
+  }
+
+  .cta-button {
+    display: none;
+  }
+
+  /* Show burger */
+  .burger {
+    display: flex;
+  }
+
+  /* Mobile menu takes full width */
+  .mobile-menu {
+    width: 100%;
+  }
+}
+
+/* ===============================================
+   TABLET VERSION (768px - 1439px)
+   =============================================== */
+@media (min-width: 768px) and (max-width: 1439px) {
+  /* Header */
+  .header-container {
+    padding: 0 32px;
+    height: 72px;
+  }
+
+  /* Hide desktop elements */
+  .nav {
+    display: none;
+  }
+
+  .cta-button {
+    display: none;
+  }
+
+  /* Show burger */
+  .burger {
+    display: flex;
+  }
+
+  /* Mobile menu partial width */
+  .mobile-menu {
+    width: 400px;
+  }
+
+  /* Hide logo in mobile menu for tablets */
+  .mobile-menu-header {
+    padding: 24px 32px 0;
+    border-bottom: none;
+  }
+
+  .mobile-logo {
+    display: none;
+  }
+
+  .close-menu {
+    margin-left: auto;
+  }
+}
+
+/* ===============================================
+   DESKTOP VERSION (1440px+)
+   =============================================== */
+@media (min-width: 1440px) {
+  /* Header */
+  .header-container {
+    padding: 0 64px;
+    height: 72px;
+  }
+
+  /* Logo */
+  .logo {
+    font-size: 26px;
+  }
+
+  /* Show desktop elements */
+  .nav {
+    display: flex;
+    margin-right: 32px;
+  }
+
+  .cta-button {
+    display: inline-block;
+  }
+
+  /* Hide burger */
+  .burger {
+    display: none;
+  }
+}
+
+/* ===============================================
+   RESPONSIVE FALLBACK (below 375px and above max)
+   =============================================== */
+@media (max-width: 374px) {
+  .header-container {
+    padding: 0 16px;
+    height: 72px;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .cta-button {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+@media (max-width: 1439px) {
+  .header-container {
+    max-width: 100%;
+  }
 }
