@@ -1,7 +1,3 @@
-/* ===============================================
-   BASE STYLES (Common for all devices)
-   =============================================== */
-
 /* Header */
 .header {
   background: var(--white);
@@ -10,7 +6,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
 }
 
 .header-container {
@@ -19,41 +15,36 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 70px;
+  padding: 0 20px;
 }
 
 /* Logo */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: bold;
-  color: #333;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.logo:hover {
-  color: #555;
+  width: 163px;
+  height: 70px;
+  display: block;
+  box-sizing: border-box;
 }
 
 .logo-icon {
-  fill: currentColor;
-  transition: fill 0.3s ease;
+  width: 100%;
+  height: 100%;
+  padding: 0;
 }
 
 /* Desktop Navigation */
 .nav {
-  display: flex;
+  display: none;
   list-style: none;
-  gap: 40px;
+  gap: 32px;
 }
 
 .nav-link {
   color: #000000;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
   cursor: pointer;
   padding: 10px 0;
   position: relative;
@@ -91,15 +82,16 @@
 .cta-button {
   background: #8b1538;
   color: #ffffff;
-  padding: 14px 28px;
+  padding: 8px 8px;
   border: none;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
-  transition: all 0.3s ease;
+  transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(139, 21, 56, 0.2);
+  display: none;
 }
 
 .cta-button:hover,
@@ -109,46 +101,59 @@
   box-shadow: 0 6px 16px rgba(139, 21, 56, 0.4);
 }
 
-/* Burger Menu Button */
-.burger {
+/* Toggle Buttons Container */
+.menu-toggle-buttons {
+  position: relative;
+  width: 40px;
+  height: 40px;
   display: none;
-  cursor: pointer;
-  padding: 8px;
+}
+
+.burger,
+.close-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
   background: none;
   border: none;
-  transition: opacity 0.3s ease;
+  cursor: pointer;
+  padding: 8px;
+  box-sizing: border-box;
 }
 
-.burger.active {
-  opacity: 0;
-  pointer-events: none;
+.close-menu {
+  display: none;
 }
 
-.burger-icon {
-  width: 24px;
-  height: 24px;
+.burger-icon,
+.close-icon {
+  width: 32px;
+  height: 32px;
   fill: #333;
-  transition: fill 0.3s ease;
 }
 
-.burger:hover .burger-icon {
+.burger:hover .burger-icon,
+.close-menu:hover .close-icon {
   fill: #555;
 }
 
 /* ===============================================
-   MOBILE MENU STYLES (All mobile devices)
-   =============================================== */
+    MOBILE MENU STYLES (All mobile devices)
+    =============================================== */
 
 .mobile-menu {
   position: fixed;
-  top: 0;
+  top: 70px;
   right: -100%;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 70px);
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  transition: right 0.3s ease;
+  transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
   z-index: 999;
 }
 
@@ -156,50 +161,6 @@
   right: 0;
 }
 
-/* Mobile Menu Header */
-.mobile-menu-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 32px;
-  height: 56px;
-  min-height: 56px;
-}
-
-.mobile-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #333;
-  text-decoration: none;
-}
-
-.mobile-logo-icon {
-  fill: currentColor;
-}
-
-.close-menu {
-  cursor: pointer;
-  padding: 8px;
-  background: none;
-  border: none;
-  transition: color 0.3s ease;
-}
-
-.close-icon {
-  width: 24px;
-  height: 24px;
-  fill: #333;
-  transition: fill 0.3s ease;
-}
-
-.close-menu:hover .close-icon {
-  fill: #555;
-}
-
-/* Mobile Menu Content */
 .mobile-menu-content {
   flex: 1;
   display: flex;
@@ -224,7 +185,7 @@
   text-decoration: none;
   font-size: 20px;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -247,7 +208,7 @@
   background-color: #8b1538;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s ease;
+  transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
 }
 
 .mobile-nav-link:hover::after,
@@ -264,7 +225,7 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
-  transition: all 0.3s ease;
+  transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
   cursor: pointer;
   margin-top: 30px;
   width: 220px;
@@ -280,8 +241,8 @@
 }
 
 /* ===============================================
-   UTILITY STYLES
-   =============================================== */
+    UTILITY STYLES
+    =============================================== */
 
 /* Smooth scrolling */
 html {
@@ -293,154 +254,62 @@ body.menu-open {
   overflow: hidden;
 }
 
-/* Hide burger when mobile menu is active */
-.mobile-menu.active ~ .header-container .burger {
-  opacity: 0;
-  pointer-events: none;
-}
-
 /* ===============================================
-   RESPONSIVE BREAKPOINTS
-   =============================================== */
+    RESPONSIVE STYLES
+    =============================================== */
 
-/* ===============================================
-   MOBILE VERSION (375px - 767px)
-   =============================================== */
-@media (min-width: 375px) and (max-width: 767px) {
-  /* Header */
-  .header-container {
-    padding: 0 20px;
-    height: 72px;
-  }
-
-  /* Logo */
-  .logo {
-    font-size: 22px;
-  }
-
-  /* Hide desktop elements */
-  .nav {
-    display: none;
-  }
-
+/* Mobile & Tablet Version */
+@media (max-width: 1439px) {
+  .nav,
   .cta-button {
     display: none;
   }
-
-  /* Show burger */
-  .burger {
-    display: flex;
+  .menu-toggle-buttons {
+    display: block;
   }
-
-  /* Mobile menu takes full width */
   .mobile-menu {
     width: 100%;
   }
 }
 
-/* ===============================================
-   TABLET VERSION (768px - 1439px)
-   =============================================== */
+/* Tablet Version (додатково) */
 @media (min-width: 768px) and (max-width: 1439px) {
-  /* Header */
   .header-container {
     padding: 0 32px;
-    height: 72px;
   }
-
-  /* Hide desktop elements */
-  .nav {
-    display: none;
-  }
-
-  .cta-button {
-    display: none;
-  }
-
-  /* Show burger */
-  .burger {
-    display: flex;
-  }
-
-  /* Mobile menu partial width */
   .mobile-menu {
     width: 400px;
+    right: -400px;
   }
-
-  /* Hide logo in mobile menu for tablets */
-  .mobile-menu-header {
-    padding: 24px 32px 0;
-    border-bottom: none;
-  }
-
-  .mobile-logo {
-    display: none;
-  }
-
-  .close-menu {
-    margin-left: auto;
+  .mobile-menu.active {
+    right: 0;
   }
 }
 
-/* ===============================================
-   DESKTOP VERSION (1440px+)
-   =============================================== */
+/* Mobile Version (додатково) */
+@media (max-width: 767px) {
+  .header-container {
+    padding: 0 20px;
+  }
+  .mobile-menu {
+    width: 100%;
+    right: -100%;
+  }
+}
+
+/* Desktop Version */
 @media (min-width: 1440px) {
-  /* Header */
   .header-container {
     padding: 0 64px;
-    height: 72px;
   }
-
-  /* Logo */
-  .logo {
-    font-size: 26px;
-  }
-
-  /* Show desktop elements */
   .nav {
     display: flex;
     margin-right: 32px;
   }
-
   .cta-button {
     display: inline-block;
   }
-
-  /* Hide burger */
-  .burger {
+  .menu-toggle-buttons {
     display: none;
-  }
-}
-
-/* ===============================================
-   RESPONSIVE FALLBACK (below 375px and above max)
-   =============================================== */
-@media (max-width: 374px) {
-  .header-container {
-    padding: 0 16px;
-    height: 72px;
-  }
-
-  .logo {
-    font-size: 26px;
-  }
-
-  .nav {
-    display: none;
-  }
-
-  .cta-button {
-    display: none;
-  }
-
-  .burger {
-    display: flex;
-  }
-}
-
-@media (max-width: 1439px) {
-  .header-container {
-    max-width: 100%;
   }
 }

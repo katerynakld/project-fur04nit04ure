@@ -2,14 +2,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById('burger');
   const mobileMenu = document.getElementById('mobileMenu');
   const closeMenuBtn = document.getElementById('closeMenu');
-  const logo = document.getElementById('logo');
   const body = document.body;
+  const menuToggleContainer = document.querySelector('.menu-toggle-buttons');
 
   // Mobile menu toggle
   const toggleMobileMenu = (open = true) => {
-    burger.classList.toggle('active', open);
     mobileMenu.classList.toggle('active', open);
     body.classList.toggle('menu-open', open);
+
+    // Керування видимістю кнопок
+    if (open) {
+      burger.style.display = 'none';
+      closeMenuBtn.style.display = 'flex';
+    } else {
+      burger.style.display = 'flex';
+      closeMenuBtn.style.display = 'none';
+    }
   };
 
   // Burger menu events
