@@ -1,0 +1,120 @@
+.furniture-list {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.section-title {
+  margin-bottom: 16px;
+}
+
+.show-more-button {
+  width: 421px;
+  background-color: #6b0609;
+  color: #fff;
+  height: 46px;
+  box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 var(--opacity-white-5);
+  border: 1.5px solid var(--color-madang);
+  border-radius: 100px;
+  padding: 10px 24px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160%;
+}
+
+.category-thumb,
+.all-categories-thumb {
+  width: 166px;
+  height: 122px;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 8px;
+  padding: 32px 16px;
+}
+
+.all-categories-thumb {
+  background-image: url(../img/All_products_2x.jpg);
+}
+
+.category-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 0.01em;
+}
+
+.furniture-categories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.furniture-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 24px;
+  margin-bottom: 32px;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.gallery-img {
+  border-radius: 8px;
+}
+
+.color-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 16px;
+  border: 1px solid #ccc;
+  vertical-align: middle;
+}
+
+.furniture-colors {
+  margin: 8px 0;
+}
+
+.furniture-title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 160%;
+  margin-top: 16px;
+}
+
+.furniture-price {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 160%;
+  margin-bottom: 16px;
+}
+
+.details-btn {
+  border-radius: 100px;
+  border: none;
+  padding: 10px 24px;
+  width: 310px;
+  height: 46px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160%;
+}

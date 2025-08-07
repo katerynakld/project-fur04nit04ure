@@ -3,10 +3,16 @@ import iziToast from "izitoast";
 
 const BASE_URL = "https://furniture-store.b.goit.study/api";
 
-export async function getDataByQuery(endPoint) {
+
+export async function getDataByQuery(endPoint, page = 1) {
   try {
     // showLoader();   
-    const response = await axios(`${BASE_URL}${endPoint}`);
+    const response = await axios(`${BASE_URL}${endPoint}`, {
+      params: {
+        page,
+        limit: 8
+      }
+    });
     // hideLoader()
     return response.data;
     
@@ -23,3 +29,4 @@ export async function getDataByQuery(endPoint) {
         });
   };
 };
+
