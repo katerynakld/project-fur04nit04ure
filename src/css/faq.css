@@ -1,6 +1,13 @@
 .faq-section {
+  padding: 48px 0;
+}
+
+@media only screen and (min-width: 1440px) {
+    .faq-section {
   padding: 80px 0;
 }
+}
+
 
 .faq-section .container {
   display: flex;
@@ -14,13 +21,26 @@
   margin-bottom: 32px;
 }
 
-.accordion-container {
+ .accordion-container {
+ max-width: 335px;
+}
+
+@media only screen and (min-width: 768px) {
+ .accordion-container {
+  max-width: 704px;
+}
+}
+
+@media only screen and (min-width: 1440px) {
+    .accordion-container {
   max-width: 865px;
 }
+}
+
 
 .ac {
   border: none !important;
-  padding: 23px 0;
+  padding: 24px 0;
   border-top: 1px solid rgba(8, 12, 9, 0.15) !important;
   margin-bottom: 0 !important;
 }
@@ -32,6 +52,7 @@
 .ac-trigger {
   font-family: 'Raleway Normal' !important;
   font-size: 16px !important;
+  font-weight: 700;
   line-height: 160% !important;
   padding: 0 !important;
   display: flex !important;
@@ -56,7 +77,7 @@
 
 @media only screen and (min-width: 768px) {
  .ac {
-        padding: 21.5px 0;
+        padding: 20px 0;
     }
 
   .ac-trigger {
