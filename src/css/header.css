@@ -15,7 +15,6 @@
   align-items: center;
   justify-content: space-between;
   height: 70px;
-  padding: 0 20px;
 }
 
 /* Logo */
@@ -45,7 +44,6 @@
   font-size: 16px;
   transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
   cursor: pointer;
-  padding: 10px 0;
   position: relative;
 }
 
@@ -81,7 +79,7 @@
 .cta-button {
   background: #8b1538;
   color: #ffffff;
-  padding: 8px 20px;
+  /* padding: 8px 20px; */
   border: none;
   border-radius: 30px;
   text-decoration: none;
@@ -165,10 +163,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 32px;
-  padding-bottom: 32px;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding: 24px 32px;
   gap: 32px;
 }
 
@@ -186,13 +181,11 @@
   color: #000000;
   text-decoration: none;
   font-size: 16px;
-  font-weight: 600;
   transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
   cursor: pointer;
   position: relative;
   overflow: hidden;
   display: block;
-  padding: 10px;
 }
 
 .mobile-nav-link:hover,
@@ -277,11 +270,9 @@ body.menu-open {
 
 /* Tablet Version (додатково) */
 @media (min-width: 768px) and (max-width: 1439px) {
-  .header-container {
-    padding: 0 32px;
-  }
   .mobile-menu {
-    width: 400px;
+    width: 250px;
+    height: auto;
     right: -400px;
     overflow-x: hidden;
   }
@@ -303,9 +294,6 @@ body.menu-open {
 
 /* Mobile Version (додатково) */
 @media (max-width: 767px) {
-  .header-container {
-    padding: 0 20px;
-  }
   .mobile-menu {
     width: 100%;
     right: -100%;
@@ -314,9 +302,6 @@ body.menu-open {
 
 /* Desktop Version */
 @media (min-width: 1440px) {
-  .header-container {
-    padding: 0 60px;
-  }
   .nav {
     display: flex;
     margin-right: 32px;
