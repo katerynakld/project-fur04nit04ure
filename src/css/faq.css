@@ -3,11 +3,10 @@
 }
 
 @media only screen and (min-width: 1440px) {
-    .faq-section {
-  padding: 80px 0;
+  .faq-section {
+    padding: 80px 0;
+  }
 }
-}
-
 
 .faq-section .container {
   display: flex;
@@ -21,32 +20,39 @@
   margin-bottom: 32px;
 }
 
- .accordion-container {
- max-width: 335px;
+.accordion-container {
+  max-width: 335px;
 }
 
 @media only screen and (min-width: 768px) {
- .accordion-container {
-  max-width: 704px;
-}
+  .accordion-container {
+    max-width: 704px;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
-    .accordion-container {
-  max-width: 865px;
+  .accordion-container {
+    max-width: 865px;
+  }
 }
-}
-
 
 .ac {
   border: none !important;
   padding: 24px 0;
   border-top: 1px solid var(--opacity-neutral-darkest-15) !important;
   margin-bottom: 0 !important;
+  margin-bottom: 8px;
+  background-color: var(--color-white);
+  box-sizing: border-box;
 }
 
 .ac:last-child {
-    border-bottom: 1px solid rgba(--opacity-neutral-darkest-15) !important;
+  border-bottom: 1px solid rgba(--opacity-neutral-darkest-15) !important;
+}
+
+.ac .ac-header {
+  margin: 0;
+  padding: 0;
 }
 
 .ac-trigger {
@@ -58,14 +64,35 @@
   display: flex !important;
   justify-content: space-between;
   align-items: center;
+  text-align: left;
+  width: 100%;
+  padding: 8px 32px 8px 8px;
+  display: block;
+  cursor: pointer;
+  background-color: transparent;
+  transition: color 250ms cubic-bezier(0.77, 0, 0.18, 1);
+  position: relative;
+  text-decoration: none;
+  margin: 0;
+  border: 0;
 }
 
+.ac-trigger:focus {
+  color: var(--color-neutral-dark);
+}
 
 .ac-trigger .ac-trigger-icon {
-    transition: transform 250ms cubic-bezier(0.77,0,0.18,1);
+  transition: transform 250ms cubic-bezier(0.77, 0, 0.18, 1);
 }
-.ac.is-active  .ac-trigger .ac-trigger-icon {
-    transform: rotate(-180deg);
+.ac.is-active .ac-trigger .ac-trigger-icon {
+  transform: rotate(-180deg);
+}
+
+.ac .ac-panel {
+  overflow: hidden;
+  transition-property: height, visibility;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.77, 0, 0.18, 1);
 }
 
 .ac-text {
@@ -76,17 +103,26 @@
 }
 
 @media only screen and (min-width: 768px) {
- .ac {
-        padding: 20px 0;
-    }
+  .ac {
+    padding: 20px 0;
+  }
 
   .ac-trigger {
-  font-size: 18px !important;
+    font-size: 18px !important;
+  }
+
+  .ac-text {
+    font-size: 18px !important;
+    color: var(--color-);
+    padding: 8px;
+    margin: 0;
+  }
 }
 
-.ac-text {
-  font-size: 18px !important;
-}
+.ac.js-enabled .ac-panel {
+  visibility: hidden;
 }
 
-
+.ac.is-active .ac-panel {
+  visibility: visible;
+}
