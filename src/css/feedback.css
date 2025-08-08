@@ -1,0 +1,60 @@
+.feedback-slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-btn {
+    background-color: #4E75FF;
+    color: white;
+    font-size: 24px;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.nav-btn.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.feedback-card {
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.feedback-author {
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    fill: gold;
+    margin-right: 2px;
+}
+
+.star.empty {
+    fill: lightgray;
+}
+
+.star-rating {
+    display: inline-block;
+}
+
+.star-rating img {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
