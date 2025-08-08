@@ -58,8 +58,7 @@ export function createFurnitureGallery(data) {
                 <div class="wrapper">
                     <button class="details-btn" type="button">Детальніше</button>
                 </div>
-            </li>
-                `;
+            </li>`;
     }).join("");
     
     refs.furnitureGallery.insertAdjacentHTML("beforeend", markup);
@@ -70,8 +69,9 @@ export async function loadMoreHandler() {
     page++;
     try {
         const data = await getDataByQuery(FURNITURES_END_POINT, page);
-        refs.furnitureGallery.insertAdjacentHTML("beforeend", createFurnitureGallery(data.furnitures));
         console.log(data);
+        refs.furnitureGallery.insertAdjacentHTML("beforeend", createFurnitureGallery(data.furnitures));
+        
         
     } catch(error) {
         console.error(error.message);

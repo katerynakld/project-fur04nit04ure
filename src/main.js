@@ -17,7 +17,7 @@ getDataByQuery(CATEGORIES_END_POINT)
 getDataByQuery(FURNITURES_END_POINT, page)
     .then(data => {
         createFurnitureGallery(data.furnitures);
-        console.log(data.furnitures);
+
     })
     .catch(error => {
         console.error(error.message);
