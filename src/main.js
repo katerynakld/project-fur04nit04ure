@@ -10,12 +10,12 @@ getDataByQuery(CATEGORIES_END_POINT, { page: 1, limit: 100 })
         refs.categoriesGallery.addEventListener("click", onCategoryClick);
     })
     .catch(error => {
-        console.error(error.message);
+        alert(error.message);
     });
 
 initFurnitureGallery()
     .catch(error => {
-        console.error(error.message);
+        alert(error.message);
     });
 
 refs.showMoreBtn.addEventListener("click", loadMoreHandler); 

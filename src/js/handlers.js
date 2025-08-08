@@ -80,7 +80,6 @@ export async function initFurnitureGallery() {
        
         totalPages = Math.ceil((data.totalItems ?? 0) / LIMIT);
         if (totalPages > page) refs.showMoreBtn.classList.remove("visually-hidden");
-        console.log(totalPages);
         
     } catch (error) {
         console.error("Помилка завантаження меблів:", error.message);
@@ -112,7 +111,7 @@ export async function loadMoreHandler() {
             refs.showMoreBtn.classList.add("visually-hidden");
         } 
     } catch(error) {
-        console.error("Помилка при завантаженні наступної сторінки:", error.message);
+        alert("Помилка при завантаженні наступної сторінки:", error.message);
     } finally {
         hideLoader();
         refs.showMoreBtn.disabled = false;

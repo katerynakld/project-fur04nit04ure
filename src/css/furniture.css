@@ -8,7 +8,7 @@
 }
 
 .show-more-button {
-  width: 421px;
+  width: 340px;
   background-color: var(--color-madang);
   color: #fff;
   height: 46px;
@@ -30,7 +30,6 @@
 .show-more-button:focus {
   opacity: 0.5;
 }
-
 .category-thumb,
 .all-categories-thumb {
   width: 166px;
@@ -70,7 +69,7 @@
 .furniture-categories-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 16px;
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -167,5 +166,21 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .show-more-button {
+    width: 340px;
+  }
+
+  .furniture-categories-list {
+    gap: 24px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .show-more-button {
+    width: 421px;
   }
 }
