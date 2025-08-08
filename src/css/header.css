@@ -15,7 +15,6 @@
   align-items: center;
   justify-content: space-between;
   height: 70px;
-  padding: 0 20px;
 }
 
 /* Logo */
@@ -274,9 +273,6 @@ body.menu-open {
 
 /* Tablet Version (додатково) */
 @media (min-width: 768px) and (max-width: 1439px) {
-  .header-container {
-    padding: 0 32px;
-  }
   .mobile-menu {
     width: 250px;
     height: auto;
@@ -300,9 +296,6 @@ body.menu-open {
 
 /* Mobile Version (додатково) */
 @media (max-width: 767px) {
-  .header-container {
-    padding: 0 20px;
-  }
   .mobile-menu {
     width: 100%;
     right: -100%;
@@ -311,9 +304,6 @@ body.menu-open {
 
 /* Desktop Version */
 @media (min-width: 1440px) {
-  .header-container {
-    padding: 0 60px;
-  }
   .nav {
     display: flex;
     margin-right: 32px;
