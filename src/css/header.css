@@ -1,4 +1,6 @@
-/* Header */
+/* ===============================================
+    HEADER
+   =============================================== */
 .header {
   background: var(--white);
   top: 0;
@@ -17,7 +19,9 @@
   height: 70px;
 }
 
-/* Logo */
+/* ===============================================
+    LOGO
+   =============================================== */
 .logo {
   width: 163px;
   height: 70px;
@@ -31,7 +35,9 @@
   padding: 0;
 }
 
-/* Desktop Navigation */
+/* ===============================================
+    DESKTOP NAVIGATION
+   =============================================== */
 .nav {
   display: none;
   list-style: none;
@@ -56,7 +62,7 @@
 .nav-link:focus::after {
   content: '';
   position: absolute;
-  bottom: 5px;
+  bottom: 0;
   left: 0;
   right: 0;
   height: 2px;
@@ -75,11 +81,12 @@
   }
 }
 
-/* CTA Button */
+/* ===============================================
+    CTA BUTTON
+   =============================================== */
 .cta-button {
   background: #8b1538;
   color: #ffffff;
-  /* padding: 8px 20px; */
   border: none;
   border-radius: 30px;
   text-decoration: none;
@@ -88,6 +95,7 @@
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(139, 21, 56, 0.2);
   display: none;
+  padding: 10px 20px;
 }
 
 .cta-button:hover,
@@ -97,7 +105,9 @@
   box-shadow: 0 6px 16px rgba(139, 21, 56, 0.4);
 }
 
-/* Toggle Buttons Container */
+/* ===============================================
+    BURGER & CLOSE BUTTONS
+   =============================================== */
 .menu-toggle-buttons {
   position: relative;
   width: 40px;
@@ -137,24 +147,23 @@
 }
 
 /* ===============================================
-    MOBILE MENU STYLES (All mobile devices)
-    =============================================== */
-
+    MOBILE MENU (DEFAULT – MOBILE FIRST)
+   =============================================== */
 .mobile-menu {
   position: fixed;
-  top: 70px;
-  right: -100%;
+  top: -100%;
+  left: 0;
   width: 100%;
   height: calc(100vh - 70px);
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
+  transition: top 250ms cubic-bezier(0.77, 0, 0.18, 1);
   z-index: 999;
 }
 
 .mobile-menu.active {
-  right: 0;
+  top: 70px;
 }
 
 .mobile-menu-content {
@@ -170,7 +179,6 @@
 .mobile-nav {
   display: flex;
   flex-direction: column;
-  list-style: none;
   gap: 32px;
   text-align: center;
   align-items: center;
@@ -184,13 +192,7 @@
   transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
   cursor: pointer;
   position: relative;
-  overflow: hidden;
   display: block;
-}
-
-.mobile-nav-link:hover,
-.mobile-nav-link:focus {
-  color: #000000;
 }
 
 .mobile-nav-link::after {
@@ -237,82 +239,136 @@
 }
 
 /* ===============================================
-    UTILITY STYLES
-    =============================================== */
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Hide scrollbar when mobile menu is open */
+    UTILITY
+   =============================================== */
 body.menu-open {
   overflow: hidden;
 }
 
 /* ===============================================
     RESPONSIVE STYLES
-    =============================================== */
+   =============================================== */
 
-/* Mobile & Tablet Version */
+/* Mobile & Tablet */
 @media (max-width: 1439px) {
   .nav,
   .cta-button {
     display: none;
   }
+
   .menu-toggle-buttons {
     display: block;
   }
-  .mobile-menu {
-    width: 100%;
-  }
 }
 
-/* Tablet Version (додатково) */
+/* =======================
+   TABLET (768px - 1439px)
+   ======================= */
 @media (min-width: 768px) and (max-width: 1439px) {
+  .menu-toggle-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
   .mobile-menu {
-    width: 250px;
-    height: auto;
-    right: -400px;
-    overflow-x: hidden;
-  }
-  .mobile-menu.active {
+    position: absolute;
+    top: 100%;
     right: 0;
+    width: 250px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 999;
+    height: auto;
+    left: auto;
   }
+
+  .mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-end;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+  }
+
   .mobile-cta-button {
     width: 185px;
-  }
-  /* текст вирівнюється по правому краю */
-  .mobile-menu-content {
-    align-items: flex-end;
-  }
-  .mobile-nav {
-    text-align: right;
-    align-items: flex-end;
+    align-self: flex-end;
   }
 }
 
-/* Mobile Version (додатково) */
+/* =======================
+   MOBILE (до 767px)
+   ======================= */
 @media (max-width: 767px) {
   .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    right: -100%;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-100%); /* спочатку приховане зверху */
+    opacity: 0; /* і прозоре */
+    transition: transform 300ms cubic-bezier(0.77, 0, 0.18, 1),
+      opacity 300ms ease;
+    z-index: 999;
+  }
+
+  .mobile-menu.active {
+    transform: translateY(0); /* виїжджає вниз */
+    opacity: 1; /* fade-in */
+  }
+
+  .mobile-menu-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* по центру */
+    justify-content: flex-start;
+    padding: 24px 32px;
+    gap: 32px;
   }
 }
 
-/* Desktop Version */
+/* =======================
+   DESKTOP (від 1440px)
+   ======================= */
 @media (min-width: 1440px) {
   .nav {
     display: flex;
-    margin-right: 32px;
+    justify-content: center;
+    align-items: center;
   }
+
   .cta-button {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .menu-toggle-buttons {
-    display: none; /* Приховуємо кнопки-перемикачі на десктопі */
-  }
+
+  .menu-toggle-buttons,
   .mobile-menu {
-    display: none; /* Приховуємо мобільне меню на десктопі */
+    display: none;
   }
 }
