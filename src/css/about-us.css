@@ -1,0 +1,39 @@
+.about-section {
+    background: #f0e6e6;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+@media only screen and (min-width: 768px) {
+    .about-section {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .about-section {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+    .about-container {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+    }
+    .about-text-wrapper {
+        width: 647px;
+    }
+}
+
+.about-title{
+    margin-bottom: 24px;
+}
+
+.about-text {
+    padding-bottom: 24px;
+}
+
+.about-img {
+    border-radius: 8px;
+}
