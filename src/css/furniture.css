@@ -9,7 +9,7 @@
 
 .show-more-button {
   width: 421px;
-  background-color: #6b0609;
+  background-color: var(--color-madang);
   color: #fff;
   height: 46px;
   box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
@@ -23,6 +23,12 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 160%;
+  transition: opacity 0.3s ease;
+}
+
+.show-more-button:hover,
+.show-more-button:focus {
+  opacity: 0.5;
 }
 
 .category-thumb,
@@ -41,6 +47,13 @@
   color: #fff;
   border-radius: 8px;
   padding: 32px 16px;
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
+.category-thumb:hover,
+.category-thumb:focus {
+  border: 8px solid var(--color-madang);
 }
 
 .all-categories-thumb {
@@ -97,6 +110,7 @@
   line-height: 160%;
   margin-top: 16px;
   width: 310px;
+  height: 58px;
 }
 
 .furniture-price {
@@ -112,12 +126,19 @@
   padding: 10px 24px;
   width: 310px;
   height: 46px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05),
-    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
-  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 var(--opacity-neutral-darkest-5),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-5);
+  background: var(--opacity-neutral-darkest-5);
   font-weight: 500;
   font-size: 16px;
   line-height: 160%;
+  transition: opacity 0.3s ease;
+}
+
+.details-btn:hover,
+.details-btn:focus {
+  opacity: 0.5;
 }
 
 .loader {
