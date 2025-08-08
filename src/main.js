@@ -1,10 +1,8 @@
 
 import { getDataByQuery } from "./js/furniture-api";
-import { createCategoriesGallery, createFurnitureGallery, loadMoreHandler } from "./js/handlers";
+import { createCategoriesGallery, initFurnitureGallery, loadMoreHandler } from "./js/handlers";
 import { CATEGORIES_END_POINT, FURNITURES_END_POINT } from "./js/constants";
 import { refs } from "./js/refs";
-
-let page = 1;
 
 getDataByQuery(CATEGORIES_END_POINT)
     .then(data => {
@@ -14,9 +12,9 @@ getDataByQuery(CATEGORIES_END_POINT)
         console.error(error.message);
     });
 
-getDataByQuery(FURNITURES_END_POINT, page)
+getDataByQuery(FURNITURES_END_POINT)
     .then(data => {
-        createFurnitureGallery(data.furnitures);
+        initFurnitureGallery(data.furnitures);
 
     })
     .catch(error => {

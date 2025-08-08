@@ -2,6 +2,7 @@
 import { refs } from "./refs.js"
 import { FURNITURES_END_POINT } from "./constants.js";
 import { getDataByQuery } from "./furniture-api.js";
+import { LIMIT } from "./constants.js";
 
 const categoryImageMap = {
     "66504a50a1b2c3d4e5f6a7b8": "Soft_furniture_2x.jpg",
@@ -19,6 +20,8 @@ const categoryImageMap = {
 };
 
 let page = 1;
+let totalPages = 1;
+
 
 export function createCategoriesGallery(data) { 
     const allCategoriesItem = `
@@ -43,11 +46,11 @@ export function createCategoriesGallery(data) {
 };
 
 export function createFurnitureGallery(data) {
-    const markup = data.map(({ name, color, price, images }) => {
+    return data.map(({ name, color, price, images }) => {
         
         const colorCircles = Array.isArray(color)
-      ? color.map(c => `<span class="color-circle" style="background-color: ${c};"></span>`).join("")
-      : `<span class="color-circle" style="background-color: ${color};"></span>`;
+            ? color.map(c => `<span class="color-circle" style="background-color: ${c};"></span>`).join("")
+            : `<span class="color-circle" style="background-color: ${color};"></span>`;
         
         return `
             <li class="gallery-item">   
@@ -60,20 +63,38 @@ export function createFurnitureGallery(data) {
                 </div>
             </li>`;
     }).join("");
-    
-    refs.furnitureGallery.insertAdjacentHTML("beforeend", markup);
-    refs.showMoreBtn.classList.remove("visually-hidden");
 };
+
+export async function initFurnitureGallery() {
+    try {
+        const data = await getDataByQuery(FURNITURES_END_POINT, page);
+        const markup = createFurnitureGallery(data.furnitures);
+        refs.furnitureGallery.innerHTML = markup; 
+       
+        refs.showMoreBtn.classList.remove("visually-hidden");
+ 
+    } catch (error) {
+        console.error("Помилка завантаження меблів:", error.message);
+    }
+};
+
 
 export async function loadMoreHandler() {
     page++;
     try {
         const data = await getDataByQuery(FURNITURES_END_POINT, page);
+        const markup = createFurnitureGallery(data.furnitures);
+        refs.furnitureGallery.insertAdjacentHTML("beforeend", markup);
         console.log(data);
-        refs.furnitureGallery.insertAdjacentHTML("beforeend", createFurnitureGallery(data.furnitures));
+        totalPages = Math.ceil(data.totalItems / LIMIT);
+        console.log(totalPages);
         
+        
+        if (page >= totalPages) {
+            refs.showMoreBtn.classList.add("visually-hidden");
+        }
         
     } catch(error) {
-        console.error(error.message);
+        console.error("Помилка при завантаженні наступної сторінки:", error.message);
     }
 };

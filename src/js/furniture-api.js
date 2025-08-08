@@ -1,5 +1,6 @@
 import axios from "axios";
 import iziToast from "izitoast";
+import { LIMIT } from "./constants";
 
 const BASE_URL = "https://furniture-store.b.goit.study/api";
 
@@ -10,7 +11,7 @@ export async function getDataByQuery(endPoint, page = 1) {
     const response = await axios(`${BASE_URL}${endPoint}`, {
       params: {
         page,
-        limit: 8
+        limit: LIMIT
       }
     });
     // hideLoader()
