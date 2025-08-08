@@ -283,6 +283,7 @@ body.menu-open {
   .mobile-menu {
     width: 400px;
     right: -400px;
+    overflow-x: hidden;
   }
   .mobile-menu.active {
     right: 0;
