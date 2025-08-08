@@ -53,15 +53,12 @@ body {
 /* Repeating styles */
 
 /* h2 */
-
 .secondary-heading {
   font-weight: 700;
   font-size: 36px;
   line-height: 120%;
   letter-spacing: 0.01em;
 }
-
-/* paragraphs  */
 
 .body-text {
   font-weight: 400;

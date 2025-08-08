@@ -7,6 +7,7 @@
 
 /* Sections style */
 @import url('./header.css');
+
 @import url('./hero.css');
 @import url('./furniture.css');
 @import url('./about-us.css');
@@ -14,4 +15,5 @@
 @import url('./feedback.css');
 @import url('./modal-furniture.css');
 @import url('./modal-order.css');
+
 @import url('./footer.css');
