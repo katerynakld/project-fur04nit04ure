@@ -1,0 +1,63 @@
+<div class="gallery"></div>
+<div class="modal-overlay" data-modal>
+  <div class="modal-field">
+    <button class="modal-close-btn" type="button" data-modal-close>
+      <svg class="icon-close" width="32" height="32">
+        <use href="./img/svg/icon.svg#close"></use>
+      </svg>
+    </button>
+
+    <ul class="gallery-details">
+        <li class="large"><img class="gallery-images" src="images/photo1.jpg" alt="photo-1"></li>
+        <li class="small"><img class="gallery-images" src="images/photo2.jpg" alt="photo-2"></li>
+        <li class="small"><img class="gallery-images" src="images/photo3.jpg" alt="photo-3"></li>
+      </ul>
+
+    <div class="content-wrapper">
+      <h2 class="details-title">Софа Oslo</h2>
+      <h3 class="details-category">Дивани</h3>
+      <p class="details-price">9 999 <span class="price-currency">грн</span></p>
+
+      <div id="rater"></div>
+
+      <h3 class="color-title">Колір</h3>
+      <ul class="color-options">
+        <li>
+          <input class="color-checkbox visually-hidden" type="checkbox" id="color1">
+          <label class="color-label" for="color1"><span class="modal-checkbox"></span></label>
+        </li>
+        <li>
+          <input class="color-checkbox visually-hidden" type="checkbox" id="color2">
+          <label class="color-label" for="color2"><span class="modal-checkbox"></span></label>
+        </li>
+        <li>
+          <input class="color-checkbox visually-hidden" type="checkbox" id="color3">
+          <label class="color-label" for="color3"><span class="modal-checkbox"></span></label>
+        </li>
+      </ul>
+
+      <p class="details-description">
+        Класичний диван з м'якими подушками та високою спинкою, ідеальний для сімейного відпочинку. Оббивка з якісної
+        зносостійкої тканини.
+      </p>
+
+      <h3 class="details-size-title">
+        Розміри:<span class="details-size">280x180x85</span>
+      </h3>
+
+      <button class="btn modal-order-btn" type="button">Перейти до замовлення</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="../js/modal-furniture.js"></script>
+
+
+<!-- <div class="modal-overlay" data-order-modal>
+  <form>
+    <input type="hidden" name="productId" />
+    <input type="hidden" name="color" /> -->
+    <!-- інші поля форми -->
+    <!-- <button type="submit">Підтвердити замовлення</button>
+  </form>
+</div> -->
