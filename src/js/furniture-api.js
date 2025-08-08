@@ -5,14 +5,12 @@ import { LIMIT } from "./constants";
 const BASE_URL = "https://furniture-store.b.goit.study/api";
 
 
-export async function getDataByQuery(endPoint, page = 1) {
+export async function getDataByQuery(endPoint, params = {}) {
   try {
     // showLoader();   
+    const { page = 1, limit = LIMIT, ...rest } = params;
     const response = await axios(`${BASE_URL}${endPoint}`, {
-      params: {
-        page,
-        limit: LIMIT
-      }
+      params: {page, limit, ...rest }
     });
     // hideLoader()
     return response.data;
@@ -27,7 +25,7 @@ export async function getDataByQuery(endPoint, page = 1) {
           maxWidth: 300,
           messageColor: "#fff",
           color: "#e23232"
-        });
+    });
   };
 };
 

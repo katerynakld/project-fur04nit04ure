@@ -1,22 +1,19 @@
 
 import { getDataByQuery } from "./js/furniture-api";
-import { createCategoriesGallery, initFurnitureGallery, loadMoreHandler } from "./js/handlers";
+import { createCategoriesGallery, initFurnitureGallery, loadMoreHandler, onCategoryClick } from "./js/handlers";
 import { CATEGORIES_END_POINT, FURNITURES_END_POINT } from "./js/constants";
 import { refs } from "./js/refs";
 
-getDataByQuery(CATEGORIES_END_POINT)
+getDataByQuery(CATEGORIES_END_POINT, { page: 1, limit: 100 })
     .then(data => {
         createCategoriesGallery(data);
+        refs.categoriesGallery.addEventListener("click", onCategoryClick);
     })
     .catch(error => {
         console.error(error.message);
     });
 
-getDataByQuery(FURNITURES_END_POINT)
-    .then(data => {
-        initFurnitureGallery(data.furnitures);
-
-    })
+initFurnitureGallery()
     .catch(error => {
         console.error(error.message);
     });

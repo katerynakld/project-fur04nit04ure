@@ -21,12 +21,14 @@ const categoryImageMap = {
 
 let page = 1;
 let totalPages = 1;
+let currentCategoryId = "";
+let isLoading = false;
 
 
 export function createCategoriesGallery(data) { 
     const allCategoriesItem = `
         <li class="gallery-item">   
-            <div class="category-thumb all-categories-thumb">
+            <div class="category-thumb all-categories-thumb" data-category-id="">
                 <p class="category-title">Всі товари</p>
             </div>
         </li>
@@ -36,25 +38,26 @@ export function createCategoriesGallery(data) {
         
         return `
             <li class="gallery-item">   
-                <div class="category-thumb" style="background-image: url('${imageUrl}')" >
+                <div class="category-thumb" data-category-id="${_id}" style="background-image: url('${imageUrl}')" >
                 <p class="category-title">${name}</p>
                 </div>
             </li>
                 `;
     }).join("");
+
     refs.categoriesGallery.insertAdjacentHTML("beforeend", allCategoriesItem + markup);
 };
 
 export function createFurnitureGallery(data) {
     return data.map(({ name, color, price, images }) => {
-        
+        const firstImg = images[0] || "../img/All_products_2x.jpg"
         const colorCircles = Array.isArray(color)
             ? color.map(c => `<span class="color-circle" style="background-color: ${c};"></span>`).join("")
             : `<span class="color-circle" style="background-color: ${color};"></span>`;
         
         return `
             <li class="gallery-item">   
-                <img class="gallery-img" src="${images[0]}" alt="${name}" width="310", height="256" />
+                <img class="gallery-img" src="${firstImg}" alt="${name}" width="310" height="256" />
                 <h3 class="furniture-title">${name}</h3>
                 <div class="furniture-colors">${colorCircles}</div>
                 <p class="furniture-price">${price} грн</p>
@@ -67,34 +70,105 @@ export function createFurnitureGallery(data) {
 
 export async function initFurnitureGallery() {
     try {
-        const data = await getDataByQuery(FURNITURES_END_POINT, page);
-        const markup = createFurnitureGallery(data.furnitures);
-        refs.furnitureGallery.innerHTML = markup; 
+        page = 1
+        isLoading = true;
+        refs.showMoreBtn.classList.add("visually-hidden");
+        showLoader();
+
+        const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(page));
+        refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures); 
        
-        refs.showMoreBtn.classList.remove("visually-hidden");
- 
+        totalPages = Math.ceil((data.totalItems ?? 0) / LIMIT);
+        if (totalPages > page) refs.showMoreBtn.classList.remove("visually-hidden");
+        console.log(totalPages);
+        
     } catch (error) {
         console.error("Помилка завантаження меблів:", error.message);
+    } finally {
+        hideLoader();
+        isLoading = false;
     }
 };
 
 
 export async function loadMoreHandler() {
-    page++;
+    if (isLoading) return;
+    if (page >= totalPages) {
+        refs.showMoreBtn.classList.add("visually-hidden");
+        return;
+    }
+
+    isLoading = true;
+    refs.showMoreBtn.disabled = true;
+    showLoader();
+
     try {
-        const data = await getDataByQuery(FURNITURES_END_POINT, page);
-        const markup = createFurnitureGallery(data.furnitures);
-        refs.furnitureGallery.insertAdjacentHTML("beforeend", markup);
-        console.log(data);
-        totalPages = Math.ceil(data.totalItems / LIMIT);
-        console.log(totalPages);
-        
+        const nextPage = page + 1;
+        const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(nextPage));
+        refs.furnitureGallery.insertAdjacentHTML("beforeend", createFurnitureGallery(data.furnitures));
+        page = nextPage;
         
         if (page >= totalPages) {
             refs.showMoreBtn.classList.add("visually-hidden");
-        }
-        
+        } 
     } catch(error) {
         console.error("Помилка при завантаженні наступної сторінки:", error.message);
+    } finally {
+        hideLoader();
+        refs.showMoreBtn.disabled = false;
+        isLoading = false;
     }
 };
+
+function bildParams(pageNum) { 
+    const params = { page: pageNum, limit: LIMIT };
+    if (currentCategoryId) params.category = currentCategoryId;
+    return params;    
+}
+
+export async function onCategoryClick(event) {
+  const thumb = event.target.closest(".category-thumb");
+  if (!thumb) return;
+
+  const categoryId = thumb.dataset.categoryId ?? "";
+  if (categoryId === currentCategoryId && page === 1) return;
+
+  // Опціонально: активний стан
+  document.querySelectorAll(".category-thumb.active").forEach(el => el.classList.remove("active"));
+  thumb.classList.add("active");
+
+  currentCategoryId = categoryId;
+  await reloadFirstPage();
+}
+
+async function reloadFirstPage() {
+  try {
+    page = 1;
+    refs.showMoreBtn.classList.add("visually-hidden");
+    refs.furnitureGallery.innerHTML = "";
+    showLoader();
+
+    const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(page));
+    refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures);
+
+    totalPages = Math.ceil((data.totalItems ?? 0) / LIMIT) || (data.totalPages ?? 1);
+    if (totalPages > 1) refs.showMoreBtn.classList.remove("visually-hidden");
+  } catch (error) {
+    console.error("Помилка перезавантаження першої сторінки:", error.message);
+  } finally {
+      hideLoader();
+  }
+}
+
+function showLoader() {
+  refs.loader?.classList.remove("hidden");
+  refs.loader?.setAttribute("aria-hidden", "false");
+}
+
+function hideLoader() {
+  refs.loader?.classList.add("hidden");
+  refs.loader?.setAttribute("aria-hidden", "true");
+}
+
+
+
