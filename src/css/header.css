@@ -166,12 +166,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Зміна: Вирівнюємо елементи догори */
-  padding-top: 32px; /* Зміна: Встановлюємо відступ лише зверху */
+  justify-content: flex-start;
+  padding-top: 32px;
   padding-bottom: 32px;
   padding-left: 32px;
   padding-right: 32px;
-  gap: 30px; /* Зміна: Додаємо відступ між елементами */
+  gap: 32px;
 }
 
 .mobile-nav {
@@ -223,7 +223,6 @@
 .mobile-cta-button {
   background: #8b1538;
   color: #ffffff;
-  padding: 12px 32px; /* Зміна: Встановлюємо вертикальний padding 12px для висоти 42px */
   border: none;
   border-radius: 30px;
   text-decoration: none;
@@ -232,11 +231,11 @@
   transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
   cursor: pointer;
   margin-top: 30px;
-  width: 335px; /* Зміна: Встановлюємо фіксовану ширину 335px */
-  height: 42px; /* Зміна: Встановлюємо фіксовану висоту 42px */
-  display: flex; /* Зміна: Використовуємо flexbox для центрування тексту */
-  align-items: center; /* Зміна: Вирівнюємо текст по центру по вертикалі */
-  justify-content: center; /* Зміна: Вирівнюємо текст по центру по горизонталі */
+  width: 335px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   box-shadow: 0 2px 8px rgba(139, 21, 56, 0.2);
 }
@@ -291,6 +290,17 @@ body.menu-open {
   }
   .mobile-menu.active {
     right: 0;
+  }
+  .mobile-cta-button {
+    width: 185px;
+  }
+  /* текст вирівнюється по правому краю */
+  .mobile-menu-content {
+    align-items: flex-end;
+  }
+  .mobile-nav {
+    text-align: right;
+    align-items: flex-end;
   }
 }
 
