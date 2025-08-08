@@ -243,11 +243,6 @@
     UTILITY STYLES
     =============================================== */
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Hide scrollbar when mobile menu is open */
 body.menu-open {
   overflow: hidden;
@@ -306,10 +301,12 @@ body.menu-open {
 @media (min-width: 1440px) {
   .nav {
     display: flex;
-    margin-right: 32px;
   }
+
   .cta-button {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .menu-toggle-buttons {
     display: none; /* Приховуємо кнопки-перемикачі на десктопі */
