@@ -23,11 +23,12 @@ let page = 1;
 let totalPages = 1;
 let currentCategoryId = "";
 let isLoading = false;
+export let productsData = [];
 
 
 export function createCategoriesGallery(data) { 
     const allCategoriesItem = `
-        <li class="gallery-item">   
+        <li class="category-item">   
             <div class="category-thumb all-categories-thumb" data-category-id="">
                 <p class="category-title">Всі товари</p>
             </div>
@@ -37,7 +38,7 @@ export function createCategoriesGallery(data) {
         const imageUrl = `../img/${categoryImageMap[_id]}`;        
         
         return `
-            <li class="gallery-item">   
+            <li class="category-item">   
                 <div class="category-thumb" data-category-id="${_id}" style="background-image: url('${imageUrl}')" >
                 <p class="category-title">${name}</p>
                 </div>
@@ -76,8 +77,11 @@ export async function initFurnitureGallery() {
         showLoader();
 
         const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(page));
-        refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures); 
-       
+        refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures);
+
+        productsData.length = 0;
+        productsData.push(...data.furnitures);      
+
         totalPages = Math.ceil((data.totalItems ?? 0) / LIMIT);
         if (totalPages > page) refs.showMoreBtn.classList.remove("visually-hidden");
         
@@ -105,6 +109,9 @@ export async function loadMoreHandler() {
         const nextPage = page + 1;
         const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(nextPage));
         refs.furnitureGallery.insertAdjacentHTML("beforeend", createFurnitureGallery(data.furnitures));
+        
+        productsData.push(...data.furnitures);
+        
         page = nextPage;
         
         if (page >= totalPages) {
