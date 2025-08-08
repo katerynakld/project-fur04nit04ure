@@ -1,1 +1,133 @@
+.container {
+    width: 100%;
+    max-width: 1440px;
+    padding-inline: 16px;
+    margin-inline: auto;
+}
 
+/* ======== Основний стиль футера (Mobile-first) ======== */
+.footer {
+    background-color: #720E0E;
+    color: #fff;
+    padding-block: 30px;
+    text-align: center;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Логотип */
+.footer-logo {
+    display: block;
+    cursor: pointer;
+    transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.footer-logo:hover,
+.footer-logo:focus {
+    opacity: 0.8;
+}
+
+/* Авторські права */
+.footer-copyright {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Навігація */
+.footer-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-nav-link {
+    color: #fff;
+    text-decoration: none;
+    transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+}
+
+.footer-nav-link:hover,
+.footer-nav-link:focus,
+.footer-nav-link:active {
+    color: #FFD700;
+    transform: scale(1.05);
+}
+
+/* Соціальні іконки */
+.footer-social-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.footer-social-link svg {
+    fill: #fff;
+    transition: fill 250ms ease, transform 250ms ease;
+}
+
+.footer-social-link:hover svg,
+.footer-social-link:focus svg,
+.footer-social-link:active svg {
+    fill: #000;
+    transform: scale(1.2);
+}
+
+/* ======== Tablet (768px і вище) ======== */
+@media (min-width: 768px) {
+    .footer .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        text-align: left;
+        gap: 32px;
+    }
+
+    .footer-nav-list {
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
+    }
+}
+
+/* ======== Desktop (1440px і вище) ======== */
+@media (min-width: 1440px) {
+    .container {
+        padding-inline: 80px;
+    }
+
+    .footer-logo {
+        width: 150px;
+    }
+
+    .footer-nav-link {
+        font-size: 18px;
+    }
+
+    .footer-social-link svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .footer-nav-list {
+        gap: 40px;
+    }
+
+    .footer-social-list {
+        gap: 28px;
+    }
+}
