@@ -45,7 +45,7 @@
 
 .hero {
   margin-top: 1px;
-  padding: 156px 0 157px 0;
+  padding: 156px 0;
   background-image: url('../img/svg/hero_img/hero-bg-mob.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -64,7 +64,7 @@
 
 @media only screen and (min-width: 768px) {
   .hero {
-    padding: 36px 0 37px 0;
+    padding: 36px 0;
     background-image: url('../img/svg/hero_img/hero-bg-tab.jpg');
   }
 
@@ -81,7 +81,7 @@
 
 @media only screen and (min-width: 1440px) {
   .hero {
-    padding: 92px 0 92px 0;
+    padding: 92px 0;
     background-image: url('../img/svg/hero_img/hero-bg-dec.jpg');
   }
 
@@ -152,5 +152,5 @@
 
 .hero__button:hover,
 .hero__button:focus {
-  background: #b46b7a;
+  background-color: #b46b7a;
 }

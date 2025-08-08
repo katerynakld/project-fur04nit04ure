@@ -41,16 +41,16 @@
 .ac {
   border: none !important;
   padding: 24px 0;
-  border-top: 1px solid rgba(8, 12, 9, 0.15) !important;
+  border-top: 1px solid var(--opacity-neutral-darkest-15) !important;
   margin-bottom: 0 !important;
 }
 
 .ac:last-child {
-    border-bottom: 1px solid rgba(8, 12, 9, 0.15) !important;
+    border-bottom: 1px solid rgba(--opacity-neutral-darkest-15) !important;
 }
 
 .ac-trigger {
-  font-family: 'Raleway Normal' !important;
+  font-family: var(--font-family) !important;
   font-size: 16px !important;
   font-weight: 700;
   line-height: 160% !important;
@@ -69,7 +69,7 @@
 }
 
 .ac-text {
-  font-family: 'Raleway Normal' !important;
+  font-family: var(--font-family) !important;
   font-weight: 400 !important;
   font-size: 16px !important;
   line-height: 160% !important;
