@@ -4,7 +4,7 @@ import{a as v,i as l,S as C,N as _,P as $,A as I,I as j}from"./assets/vendor-Cw2
                 <p class="category-title">Всі товари</p>
             </div>
         </li>
-    `,r=e.map(({_id:o,name:s})=>{const i=`/img/${H[o]}`;return`<li class="category-item"><div class="category-thumb" data-category-id="${o}" style="background-image: url('${i}')" >
+    `,r=e.map(({_id:o,name:s})=>{const i=`./img/${H[o]}`;return`<li class="category-item"><div class="category-thumb" data-category-id="${o}" style="background-image: url('${i}')" >
  <p class="category-title">${s}</p>
                 </div>
             </li>`}).join("");a.categoriesGallery.insertAdjacentHTML("beforeend",t+r)}function L(e){return e.map(({name:t,color:r,price:o,images:s,_id:i})=>{const d=s[0]||"/img/All_products_2x.jpg",x=Array.isArray(r)?r.map(q=>`<span class="color-circle" style="background-color: ${q};"></span>`).join(""):`<span class="color-circle" style="background-color: ${r};"></span>`;return`
