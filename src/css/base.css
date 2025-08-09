@@ -66,9 +66,9 @@ body {
   background-color: #ffffff;
 }
 
-body.modal-open {
+/* body.modal-open {
   overflow: hidden;
-}
+} */
 
 /* transition: property-name 250ms cubic-bezier(0.77,0,0.18,1); */
 

@@ -1,65 +1,22 @@
-import Raty from 'raty-js';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
-export const CATEGORIES_END_POINT = '/categories';
-export const FURNITURES_END_POINT = '/furnitures';
+import { generateStars } from './helpers';
+import { productsData } from './handlers';
 
-const BASE_URL = 'https://furniture-store.b.goit.study/api';
+// , openOrderModal
 
-let productsData = [];
-
-// 1. Завантаження даних з бекенду
-export async function getDataByQuery(endPoint, page = 1) {
-  try {
-    // showLoader();
-
-    const url = new URL(`${BASE_URL}${FURNITURES_END_POINT}`);
-    url.searchParams.append('page', page);
-    url.searchParams.append('limit', 8);
-
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.json();
-
-    // hideLoader();
-    productsData = data.furnitures;
-
-    console.log(productsData);
-    renderGallery(productsData);
-  } catch (error) {
-    console.log(error.message);
-  }
-}
-
-// 2. Рендеримо картки (якщо потрібно)
-function renderGallery(products) {
-  const gallery = document.querySelector('.gallery');
-  gallery.innerHTML = products
-    .map(
-      ({ _id, name, images }) => `
-    <li class="gallery-item">
-      <img src="${images[0]}" alt="${name}">
-      <button class="details-btn" data-id="${_id}">Детальніше</button>
-    </li>
-  `
-    )
-    .join('');
-}
-// ------------------мій код---------------------
-// 3. Відкриття модалки по кліку на .details-btn
 document.addEventListener('click', event => {
   const btn = event.target.closest('.details-btn');
   if (!btn) return;
 
   const id = btn.dataset.id;
+
   const product = productsData.find(p => p._id === id);
   if (product) fillModal(product);
 });
 
-// 4. Заповнення твоєї HTML-модалки
+
 
 export let orderData = {
   id: '',
@@ -88,6 +45,9 @@ function fillModal(product) {
     '.details-price'
   ).innerHTML = `${product.price} <span class="price-currency">грн</span>`;
 
+  document.querySelector('#rating').innerHTML = generateStars(product.rate);
+
+
   const colorsHTML = product.color
     .map(
       (color, i) => `
@@ -107,23 +67,10 @@ function fillModal(product) {
   modal.querySelector('.details-description').textContent = product.description;
   modal.querySelector('.details-size').textContent = product.sizes;
 
-  console.log('rating:', product.rate);
-
-  new Raty(document.querySelector('#rater'), {
-    score: product.rate,
-    half: true,
-    readOnly: true,
-    round: { down: 0.25, full: 0.6, up: 0.76 },
-    number: 5,
-    starType: 'svg',
-  });
-
-  console.log(document.getElementById('rater').innerHTML);
-
   modal.classList.add('is-open');
-  document.body.classList.add('modal-open');
+  // document.body.classList.add('modal-open');
+  document.body.style.overflow = "hidden";
 
-  // ініціалізація чекбоксів (щоб можна було вибирати лише один колір)
   initColorCheckboxes();
 
   document.addEventListener('keydown', handleEscClose);
@@ -133,8 +80,7 @@ function fillModal(product) {
     .addEventListener('click', closeModal);
 }
 
-// --------------------
-// ** Ініціалізація чекбоксів для вибору одного кольору **
+
 function initColorCheckboxes() {
   const checkboxes = document.querySelectorAll('.color-checkbox');
 
@@ -151,8 +97,7 @@ function initColorCheckboxes() {
   });
 }
 
-// --------------------
-// ** Обробник кнопки замовлення **
+
 document
   .querySelector('.modal-order-btn')
   .addEventListener('click', function (e) {
@@ -161,7 +106,12 @@ document
     const checkedBox = document.querySelector('.color-checkbox:checked');
 
     if (!checkedBox) {
-      console.log('Нічого не вибрано');
+      iziToast.warning({
+            title: 'Увага',
+            message: `Оберіть, будь ласка, колір`,
+            position: 'center',
+            timeout: 2000,
+          });
       return;
     }
     orderData.color = checkedBox.value;
@@ -171,11 +121,14 @@ document
     openOrderModal();
   });
 
-// 5. Закриття модалки
+
 function closeModal() {
   const modal = document.querySelector('[data-modal]');
   modal.classList.remove('is-open');
-  document.body.classList.remove('modal-open');
+
+  // document.body.classList.remove('modal-open');
+  document.body.style.overflow = '';
+
   document.removeEventListener('keydown', handleEscClose);
   modal.removeEventListener('click', handleOverlayClose);
   modal
@@ -195,5 +148,3 @@ function handleEscClose(event) {
   }
 }
 
-// 6. Запускаємо завантаження товарів
-getDataByQuery(FURNITURES_END_POINT, 1);
