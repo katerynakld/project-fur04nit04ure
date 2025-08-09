@@ -3,6 +3,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 import { refs } from './refs.js';
 import { postOrder } from './order-api.js';
 import { closeOrderModal } from './handlers.js';
+import { orderData } from './modal-furniture.js';
 import IMask from 'imask';
 
 const phoneInput = document.getElementById('phone-input');
@@ -27,9 +28,12 @@ document.addEventListener('keydown', e => {
   }
 });
 
-refs.orderFormEl.addEventListener('submit', handleOrderSubmit);
+let orderDetails = orderData;
+refs.orderFormEl.addEventListener('submit', event =>
+  handleOrderSubmit(event, orderDetails)
+);
 
-export async function handleOrderSubmit(event) {
+export async function handleOrderSubmit(event, orderDetails) {
   event.preventDefault();
   if (!refs.orderFormEl.checkValidity()) {
     iziToast.error({
@@ -39,14 +43,13 @@ export async function handleOrderSubmit(event) {
     return;
   }
 
-  let furnitureId = '682f9bbf8acbdf505592ac36';
-  let marker = '#ffffff';
+  const { id, color } = orderData;
 
   const orderInfo = {
     email: refs.orderFormEl.email.value.trim(),
     phone: refs.orderFormEl.phone.value.trim().replace(/\D/g, ''),
-    modelId: furnitureId,
-    color: marker,
+    modelId: id,
+    color: color,
     comment: refs.orderFormEl.comment.value.trim(),
   };
 
