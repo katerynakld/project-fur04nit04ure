@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/project-fur04nit04ure",
+    "build": "vite build --base=/project-fur04nit04ure/",
     "preview": "vite preview"
   },
   "devDependencies": {
