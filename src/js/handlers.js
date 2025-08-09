@@ -86,7 +86,7 @@ export async function initFurnitureGallery() {
         if (totalPages > page) refs.showMoreBtn.classList.remove("visually-hidden");
         
     } catch (error) {
-        console.error("Помилка завантаження меблів:", error.message);
+        alert("Помилка завантаження меблів:", error.message);
     } finally {
         hideLoader();
         isLoading = false;
@@ -160,7 +160,7 @@ async function reloadFirstPage() {
     totalPages = Math.ceil((data.totalItems ?? 0) / LIMIT) || (data.totalPages ?? 1);
     if (totalPages > 1) refs.showMoreBtn.classList.remove("visually-hidden");
   } catch (error) {
-    console.error("Помилка перезавантаження першої сторінки:", error.message);
+    alert("Помилка перезавантаження першої сторінки:", error.message);
   } finally {
       hideLoader();
   }
