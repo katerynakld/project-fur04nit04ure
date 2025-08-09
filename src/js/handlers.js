@@ -24,29 +24,22 @@ let currentCategoryId = '';
 let isLoading = false;
 export let productsData = [];
 
-
-
 export function createCategoriesGallery(data) {
-    const allCategoriesItem = `
+  const allCategoriesItem = `
         <li class="category-item">
             <div class="category-thumb all-categories-thumb" data-category-id="">
                 <p class="category-title">Всі товари</p>
             </div>
         </li>
     `;
-    const markup = data.map(({ _id, name }) => {
-        const imageUrl = `/img/${categoryImageMap[_id]}`;
+  const markup = data
+    .map(({ _id, name }) => {
+      const imageUrl = `/img/svg/${categoryImageMap[_id]}`;
 
-        return `
-            <li class="category-item">
-
-      return `
-            <li class="category-item">   
-                <div class="category-thumb" data-category-id="${_id}" style="background-image: url('${imageUrl}')" >
-                <p class="category-title">${name}</p>
+      return `<li class="category-item"><div class="category-thumb" data-category-id="${_id}" style="background-image: url('${imageUrl}')" >
+ <p class="category-title">${name}</p>
                 </div>
-            </li>
-                `;
+            </li>`;
     })
     .join('');
 
@@ -57,19 +50,19 @@ export function createCategoriesGallery(data) {
 }
 
 export function createFurnitureGallery(data) {
-    return data
-      .map(({ name, color, price, images, _id }) => {
-        const firstImg = images[0] || '/img/All_products_2x.jpg';
-        const colorCircles = Array.isArray(color)
-          ? color
-              .map(
-                c =>
-                  `<span class="color-circle" style="background-color: ${c};"></span>`
-              )
-              .join('')
-          : `<span class="color-circle" style="background-color: ${color};"></span>`;
+  return data
+    .map(({ name, color, price, images, _id }) => {
+      const firstImg = images[0] || '/img/All_products_2x.jpg';
+      const colorCircles = Array.isArray(color)
+        ? color
+            .map(
+              c =>
+                `<span class="color-circle" style="background-color: ${c};"></span>`
+            )
+            .join('')
+        : `<span class="color-circle" style="background-color: ${color};"></span>`;
 
-        return `
+      return `
             <li class="gallery-item">
                 <img class="gallery-img" src="${firstImg}" alt="${name}" />
                 <h3 class="furniture-title">${name}</h3>
@@ -79,9 +72,9 @@ export function createFurnitureGallery(data) {
                     <button class="details-btn" type="button" data-id="${_id}">Детальніше</button>
                 </div>
             </li>`;
-      })
-      .join('');
-};
+    })
+    .join('');
+}
 
 export async function initFurnitureGallery() {
   try {
@@ -132,27 +125,16 @@ export async function loadMoreHandler() {
 
     page = nextPage;
 
-    try {
-        const nextPage = page + 1;
-        const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(nextPage));
-        refs.furnitureGallery.insertAdjacentHTML("beforeend", createFurnitureGallery(data.furnitures));
-
-        productsData.push(...data.furnitures);
-
-        page = nextPage;
-
-        if (page >= totalPages) {
-            refs.showMoreBtn.classList.add("visually-hidden");
-        }
-    } catch(error) {
-        alert("Помилка при завантаженні наступної сторінки:", error.message);
-    } finally {
-        hideLoader();
-        refs.showMoreBtn.disabled = false;
-        isLoading = false;
-
+    if (page >= totalPages) {
+      refs.showMoreBtn.classList.add('visually-hidden');
     }
- 
+  } catch (error) {
+    alert('Помилка при завантаженні наступної сторінки:', error.message);
+  } finally {
+    hideLoader();
+    refs.showMoreBtn.disabled = false;
+    isLoading = false;
+  }
 }
 
 function bildParams(pageNum) {
