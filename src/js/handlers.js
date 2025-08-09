@@ -47,7 +47,7 @@ export function createCategoriesGallery(data) {
     `;
   const markup = data
     .map(({ _id, name }) => {
-      const imageUrl = `/img/${categoryImageMap[_id]}`;
+      const imageUrl = `./img/${categoryImageMap[_id]}`;
 
       return `<li class="category-item"><div class="category-thumb" data-category-id="${_id}" style="background-image: url('${imageUrl}')" >
  <p class="category-title">${name}</p>
