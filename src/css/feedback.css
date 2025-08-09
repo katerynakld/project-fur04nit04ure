@@ -88,6 +88,10 @@
     align-items: center;
 }
 
+.nav-btn:hover {
+    background-color: #d1d1d1;
+}
+
 .btn-left{
     transform: rotate(-90deg);
     fill: #000000;
