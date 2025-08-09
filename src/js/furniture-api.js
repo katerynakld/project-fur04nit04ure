@@ -7,12 +7,12 @@ const BASE_URL = "https://furniture-store.b.goit.study/api";
 
 export async function getDataByQuery(endPoint, params = {}) {
   try {
-    // showLoader();   
+
     const { page = 1, limit = LIMIT, ...rest } = params;
     const response = await axios(`${BASE_URL}${endPoint}`, {
       params: {page, limit, ...rest }
     });
-    // hideLoader()
+
     return response.data;
     
   } catch(error) { 

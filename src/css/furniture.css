@@ -30,9 +30,13 @@
 .show-more-button:focus {
   opacity: 0.5;
 }
+
+.category-item {
+  width: calc((100% - 16px) / 2);
+}
+
 .category-thumb,
 .all-categories-thumb {
-  width: 158px;
   height: 122px;
   display: flex;
   background-size: cover;
@@ -83,6 +87,10 @@
 
 .wrapper {
   text-align: center;
+}
+
+.gallery-item {
+  width: 100%;
 }
 
 .gallery-img {
@@ -177,10 +185,26 @@
   .furniture-categories-list {
     gap: 24px;
   }
+
+  .category-item {
+    width: calc((100% - 72px) / 4);
+  }
+
+  .gallery-item {
+    width: calc((100% - 24px) / 2);
+  }
 }
 
 @media only screen and (min-width: 1440px) {
   .show-more-button {
     width: 421px;
+  }
+
+  .category-item {
+    width: calc((100% - 6 * 24px) / 7);
+  }
+
+  .gallery-item {
+    width: calc((100% - 72px) / 4);
   }
 }

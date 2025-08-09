@@ -35,7 +35,7 @@ export function createCategoriesGallery(data) {
         </li>
     `;
     const markup = data.map(({ _id, name }) => {
-        const imageUrl = `../img/${categoryImageMap[_id]}`;        
+        const imageUrl = `/img/${categoryImageMap[_id]}`;        
         
         return `
             <li class="category-item">   
@@ -51,14 +51,14 @@ export function createCategoriesGallery(data) {
 
 export function createFurnitureGallery(data) {
     return data.map(({ name, color, price, images }) => {
-        const firstImg = images[0] || "../img/All_products_2x.jpg"
+        const firstImg = images[0] || "/img/All_products_2x.jpg"
         const colorCircles = Array.isArray(color)
             ? color.map(c => `<span class="color-circle" style="background-color: ${c};"></span>`).join("")
             : `<span class="color-circle" style="background-color: ${color};"></span>`;
         
         return `
             <li class="gallery-item">   
-                <img class="gallery-img" src="${firstImg}" alt="${name}" width="310" height="256" />
+                <img class="gallery-img" src="${firstImg}" alt="${name}" />
                 <h3 class="furniture-title">${name}</h3>
                 <div class="furniture-colors">${colorCircles}</div>
                 <p class="furniture-price">${price} грн</p>
