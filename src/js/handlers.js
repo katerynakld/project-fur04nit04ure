@@ -1,29 +1,29 @@
-
-import { refs } from "./refs.js"
-import { FURNITURES_END_POINT } from "./constants.js";
-import { getDataByQuery } from "./furniture-api.js";
-import { LIMIT } from "./constants.js";
+import { refs } from './refs.js';
+import { FURNITURES_END_POINT } from './constants.js';
+import { getDataByQuery } from './furniture-api.js';
+import { LIMIT } from './constants.js';
 
 const categoryImageMap = {
-    "66504a50a1b2c3d4e5f6a7b8": "Soft_furniture_2x.jpg",
-    "66504a50a1b2c3d4e5f6a7b9": "Storage_systems_2x.jpg",
-    "66504a50a1b2c3d4e5f6a7ba": "Beds_2x.jpg",
-    "66504a50a1b2c3d4e5f6a7bb": "Tables_2x.jpg",
-    "66504a50a1b2c3d4e5f6a7bc": "Chairs_2x.jpg",
-    "66504a50a1b2c3d4e5f6a7bd": "Citchens_2x.jpg",
-    "66504a50a1b2c3d4e5f6a7be": "Children_furniture_2x.jpg",
-    "66504a50a1b2c3d4e5f6a7bf": "Ofice_furniture_2x.jpg",
-    "66504a50a1b2c3d4e5f6a7c0": "Corridor_furniture_2x.jpg",
-    "66504a50a1b2c3d4e5f6a7c1": "Bathroom_furniture_2x.jpg",
-    "66504a50a1b2c3d4e5f6a7c2": "Garden_furniture_2x.jpg",
-    "66504a50a1b2c3d4e5f6a7c3": "Accessuars_2x.jpg"
+  '66504a50a1b2c3d4e5f6a7b8': 'Soft_furniture_2x.jpg',
+  '66504a50a1b2c3d4e5f6a7b9': 'Storage_systems_2x.jpg',
+  '66504a50a1b2c3d4e5f6a7ba': 'Beds_2x.jpg',
+  '66504a50a1b2c3d4e5f6a7bb': 'Tables_2x.jpg',
+  '66504a50a1b2c3d4e5f6a7bc': 'Chairs_2x.jpg',
+  '66504a50a1b2c3d4e5f6a7bd': 'Citchens_2x.jpg',
+  '66504a50a1b2c3d4e5f6a7be': 'Children_furniture_2x.jpg',
+  '66504a50a1b2c3d4e5f6a7bf': 'Ofice_furniture_2x.jpg',
+  '66504a50a1b2c3d4e5f6a7c0': 'Corridor_furniture_2x.jpg',
+  '66504a50a1b2c3d4e5f6a7c1': 'Bathroom_furniture_2x.jpg',
+  '66504a50a1b2c3d4e5f6a7c2': 'Garden_furniture_2x.jpg',
+  '66504a50a1b2c3d4e5f6a7c3': 'Accessuars_2x.jpg',
 };
 
 let page = 1;
 let totalPages = 1;
-let currentCategoryId = "";
+let currentCategoryId = '';
 let isLoading = false;
 export let productsData = [];
+
 
 
 export function createCategoriesGallery(data) {
@@ -39,15 +39,22 @@ export function createCategoriesGallery(data) {
 
         return `
             <li class="category-item">
+
+      return `
+            <li class="category-item">   
                 <div class="category-thumb" data-category-id="${_id}" style="background-image: url('${imageUrl}')" >
                 <p class="category-title">${name}</p>
                 </div>
             </li>
                 `;
-    }).join("");
+    })
+    .join('');
 
-    refs.categoriesGallery.insertAdjacentHTML("beforeend", allCategoriesItem + markup);
-};
+  refs.categoriesGallery.insertAdjacentHTML(
+    'beforeend',
+    allCategoriesItem + markup
+  );
+}
 
 export function createFurnitureGallery(data) {
     return data
@@ -77,40 +84,53 @@ export function createFurnitureGallery(data) {
 };
 
 export async function initFurnitureGallery() {
-    try {
-        page = 1
-        isLoading = true;
-        refs.showMoreBtn.classList.add("visually-hidden");
-        showLoader();
+  try {
+    page = 1;
+    isLoading = true;
+    refs.showMoreBtn.classList.add('visually-hidden');
+    showLoader();
 
-        const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(page));
-        refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures);
+    const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(page));
+    refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures);
 
-        productsData.length = 0;
-        productsData.push(...data.furnitures);
+    productsData.length = 0;
+    productsData.push(...data.furnitures);
 
-        totalPages = Math.ceil((data.totalItems ?? 0) / LIMIT);
-        if (totalPages > page) refs.showMoreBtn.classList.remove("visually-hidden");
-
-    } catch (error) {
-        alert("Помилка завантаження меблів:", error.message);
-    } finally {
-        hideLoader();
-        isLoading = false;
-    }
-};
-
+    totalPages = Math.ceil((data.totalItems ?? 0) / LIMIT);
+    if (totalPages > page) refs.showMoreBtn.classList.remove('visually-hidden');
+  } catch (error) {
+    alert('Помилка завантаження меблів:', error.message);
+  } finally {
+    hideLoader();
+    isLoading = false;
+  }
+}
 
 export async function loadMoreHandler() {
-    if (isLoading) return;
-    if (page >= totalPages) {
-        refs.showMoreBtn.classList.add("visually-hidden");
-        return;
-    }
+  if (isLoading) return;
+  if (page >= totalPages) {
+    refs.showMoreBtn.classList.add('visually-hidden');
+    return;
+  }
 
-    isLoading = true;
-    refs.showMoreBtn.disabled = true;
-    showLoader();
+  isLoading = true;
+  refs.showMoreBtn.disabled = true;
+  showLoader();
+
+  try {
+    const nextPage = page + 1;
+    const data = await getDataByQuery(
+      FURNITURES_END_POINT,
+      bildParams(nextPage)
+    );
+    refs.furnitureGallery.insertAdjacentHTML(
+      'beforeend',
+      createFurnitureGallery(data.furnitures)
+    );
+
+    productsData.push(...data.furnitures);
+
+    page = nextPage;
 
     try {
         const nextPage = page + 1;
@@ -130,25 +150,29 @@ export async function loadMoreHandler() {
         hideLoader();
         refs.showMoreBtn.disabled = false;
         isLoading = false;
+
     }
-};
+ 
+}
 
 function bildParams(pageNum) {
-    const params = { page: pageNum, limit: LIMIT };
-    if (currentCategoryId) params.category = currentCategoryId;
-    return params;
+  const params = { page: pageNum, limit: LIMIT };
+  if (currentCategoryId) params.category = currentCategoryId;
+  return params;
 }
 
 export async function onCategoryClick(event) {
-  const thumb = event.target.closest(".category-thumb");
+  const thumb = event.target.closest('.category-thumb');
   if (!thumb) return;
 
-  const categoryId = thumb.dataset.categoryId ?? "";
+  const categoryId = thumb.dataset.categoryId ?? '';
   if (categoryId === currentCategoryId && page === 1) return;
 
   // Опціонально: активний стан
-  document.querySelectorAll(".category-thumb.active").forEach(el => el.classList.remove("active"));
-  thumb.classList.add("active");
+  document
+    .querySelectorAll('.category-thumb.active')
+    .forEach(el => el.classList.remove('active'));
+  thumb.classList.add('active');
 
   currentCategoryId = categoryId;
   await reloadFirstPage();
@@ -157,31 +181,29 @@ export async function onCategoryClick(event) {
 async function reloadFirstPage() {
   try {
     page = 1;
-    refs.showMoreBtn.classList.add("visually-hidden");
-    refs.furnitureGallery.innerHTML = "";
+    refs.showMoreBtn.classList.add('visually-hidden');
+    refs.furnitureGallery.innerHTML = '';
     showLoader();
 
     const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(page));
     refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures);
 
-    totalPages = Math.ceil((data.totalItems ?? 0) / LIMIT) || (data.totalPages ?? 1);
-    if (totalPages > 1) refs.showMoreBtn.classList.remove("visually-hidden");
+    totalPages =
+      Math.ceil((data.totalItems ?? 0) / LIMIT) || (data.totalPages ?? 1);
+    if (totalPages > 1) refs.showMoreBtn.classList.remove('visually-hidden');
   } catch (error) {
-    alert("Помилка перезавантаження першої сторінки:", error.message);
+    alert('Помилка перезавантаження першої сторінки:', error.message);
   } finally {
-      hideLoader();
+    hideLoader();
   }
 }
 
 function showLoader() {
-  refs.loader?.classList.remove("hidden");
-  refs.loader?.setAttribute("aria-hidden", "false");
+  refs.loader?.classList.remove('hidden');
+  refs.loader?.setAttribute('aria-hidden', 'false');
 }
 
 function hideLoader() {
-  refs.loader?.classList.add("hidden");
-  refs.loader?.setAttribute("aria-hidden", "true");
+  refs.loader?.classList.add('hidden');
+  refs.loader?.setAttribute('aria-hidden', 'true');
 }
-
-
-
