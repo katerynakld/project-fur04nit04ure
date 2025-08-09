@@ -1,4 +1,3 @@
-
 //Файл для збереження хендлерів
 
 import { refs } from './refs.js';
@@ -16,7 +15,6 @@ export function closeOrderModal() {
   document.body.style.overflow = '';
   refs.orderFormEl.reset();
 }
-
 
 const categoryImageMap = {
   '66504a50a1b2c3d4e5f6a7b8': 'Soft_furniture_2x.jpg',
