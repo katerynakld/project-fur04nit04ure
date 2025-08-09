@@ -4,7 +4,7 @@ import{a as M,i as k,S as I,N as _,P as x,A as S}from"./assets/vendor-BMd6maSA.j
                 <p class="category-title">Всі товари</p>
             </div>
         </li>
-    `,s=t.map(({_id:a,name:r})=>{const i=`/img/${j[a]}`;return`
+    `,s=t.map(({_id:a,name:r})=>{const i=`/img/svg/${j[a]}`;return`
             <li class="category-item">   
                 <div class="category-thumb" data-category-id="${a}" style="background-image: url('${i}')" >
                 <p class="category-title">${r}</p>
