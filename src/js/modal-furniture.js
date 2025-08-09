@@ -1,3 +1,5 @@
+import Raty from 'raty-js';
+
 export const CATEGORIES_END_POINT = '/categories';
 export const FURNITURES_END_POINT = '/furnitures';
 
@@ -11,8 +13,8 @@ export async function getDataByQuery(endPoint, page = 1) {
     // showLoader();
 
     const url = new URL(`${BASE_URL}${FURNITURES_END_POINT}`);
-    url.searchParams.append("page", page);
-    url.searchParams.append("limit", 8);
+    url.searchParams.append('page', page);
+    url.searchParams.append('limit', 8);
 
     const response = await fetch(url);
 
@@ -23,18 +25,14 @@ export async function getDataByQuery(endPoint, page = 1) {
     const data = await response.json();
 
     // hideLoader();
-  productsData = data.furnitures;
+    productsData = data.furnitures;
 
     console.log(productsData);
     renderGallery(productsData);
-
   } catch (error) {
     console.log(error.message);
   }
 }
-
-
-
 
 // 2. Рендеримо картки (якщо потрібно)
 function renderGallery(products) {
@@ -62,11 +60,14 @@ document.addEventListener('click', event => {
 });
 
 // 4. Заповнення твоєї HTML-модалки
-let choosedColor = '';
-let currentProductId = '';
+
+export let orderData = {
+  id: '',
+  color: '',
+};
 
 function fillModal(product) {
-  currentProductId = product._id; 
+  orderData.id = product._id;
 
   const modal = document.querySelector('[data-modal]');
 
@@ -89,13 +90,13 @@ function fillModal(product) {
 
   const colorsHTML = product.color
     .map(
-      (col, i) => `
+      (color, i) => `
     <li>
       <input class="color-checkbox visually-hidden" type="checkbox" id="color${
         i + 1
-      }" value="${col}">  <!-- ** ВАЖЛИВО: ДОДАЄМО value З КОЛЬОРОМ ** -->
+      }" value="${color}">
       <label class="color-label" for="color${i + 1}">
-        <span class="modal-checkbox" style="background-color:${col}"></span>
+        <span class="modal-checkbox" style="background-color:${color}"></span>
       </label>
     </li>
   `
@@ -106,7 +107,21 @@ function fillModal(product) {
   modal.querySelector('.details-description').textContent = product.description;
   modal.querySelector('.details-size').textContent = product.sizes;
 
+  console.log('rating:', product.rate);
+
+  new Raty(document.querySelector('#rater'), {
+    score: product.rate,
+    half: true,
+    readOnly: true,
+    round: { down: 0.25, full: 0.6, up: 0.76 },
+    number: 5,
+    starType: 'svg',
+  });
+
+  console.log(document.getElementById('rater').innerHTML);
+
   modal.classList.add('is-open');
+  document.body.classList.add('modal-open');
 
   // ініціалізація чекбоксів (щоб можна було вибирати лише один колір)
   initColorCheckboxes();
@@ -149,23 +164,18 @@ document
       console.log('Нічого не вибрано');
       return;
     }
-    choosedColor = checkedBox.value;
+    orderData.color = checkedBox.value;
 
     closeModal();
 
     openOrderModal();
-
-    // function fillOrderForm({ productId, color }) {
-    //   const form = document.querySelector('[data-order-modal] form');
-    //   form.querySelector('[name="productId"]').value = productId;
-    //   form.querySelector('[name="color"]').value = color;
-    // }
   });
 
 // 5. Закриття модалки
 function closeModal() {
   const modal = document.querySelector('[data-modal]');
   modal.classList.remove('is-open');
+  document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', handleEscClose);
   modal.removeEventListener('click', handleOverlayClose);
   modal
@@ -179,12 +189,11 @@ function handleOverlayClose(e) {
   }
 }
 
-function handleEscClose(e) {
-  if (e.key === 'Escape') {
+function handleEscClose(event) {
+  if (event.key === 'Escape') {
     closeModal();
   }
 }
 
 // 6. Запускаємо завантаження товарів
 getDataByQuery(FURNITURES_END_POINT, 1);
-

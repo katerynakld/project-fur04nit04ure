@@ -48,7 +48,7 @@
   --color-scheme-2-border: var(--opacity-neutral-darkest-15);
   --color-scheme-2-accent: var(--color-neutral-darkest);
   --color-scheme-2-foreground: var(--color-madang-lighter);
-  --font-family:  'Raleway', sans-serif;
+  --font-family: 'Raleway', sans-serif;
 }
 
 html {
@@ -64,6 +64,10 @@ body {
   line-height: 160%;
   color: #080c09;
   background-color: #ffffff;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 /* transition: property-name 250ms cubic-bezier(0.77,0,0.18,1); */
@@ -97,12 +101,6 @@ body {
   letter-spacing: 0.01em;
 }
 
-.body-text {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 160%;
-}
-
 /* Styles for Tablet  and Desktop devices */
 @media only screen and (min-width: 768px) {
   .secondary-heading {
@@ -112,9 +110,4 @@ body {
     letter-spacing: 0.01em;
   }
 
-  .body-text {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 160%;
-  }
 }
