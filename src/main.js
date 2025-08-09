@@ -1,5 +1,8 @@
 import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import axios from 'axios';
 
 class FeedbackSlider {
@@ -14,8 +17,6 @@ class FeedbackSlider {
     async loadFeedbacks() {
         try {
             this.showLoading();
-           
-            // Заміни на твій API endpoint
             const response = await axios.get('https://furniture-store.b.goit.study/api/feedbacks', {
                 params: {
                     limit: 10,
@@ -45,7 +46,7 @@ class FeedbackSlider {
         } else if (rating >= 3.8 && rating <= 4.2) {
             return 4;
         } else {
-            return Math.round(rating * 2) / 2; // Округлення до 0.5
+            return Math.round(rating * 2) / 2;
         }
     }
     generateStars(rating) {
@@ -54,14 +55,13 @@ class FeedbackSlider {
        
         for (let i = 1; i <= 5; i++) {
             if (i <= roundedRating) {
-                starsHtml += `<svg class="star"><use href="#star-full"></use></svg>`;
+                starsHtml += `<svg class="star" width="23" height="23"><use href="../img/svg/icon.svg#star-full"></use></svg>`;
             } else if (i - 0.5 === roundedRating) {
-                starsHtml += `<svg class="star"><use href="#star-half"></use></svg>`;
+                starsHtml += `<svg class="star" width="24" height="24"><use href="../img/svg/icon.svg#half-star"></use></svg>`;
             } else {
-                starsHtml += `<svg class="star empty"><use href="#star-empty"></use></svg>`;
+                starsHtml += `<svg class="star" width="23" height="23"><use href="../img/svg/icon.svg#star-empty"></use></svg>`;
             }
         }
-       
         return starsHtml;
     }
     renderFeedbacks() {
@@ -73,7 +73,7 @@ class FeedbackSlider {
                     <div class="star-rating">
                         ${this.generateStars(feedback.rate)}
                     </div>
-                    <div class="feedback-text">${feedback.descr}</div>
+                    <div class="feedback-text">"${feedback.descr}"</div>
                     <div class="feedback-author">${feedback.name}</div>
                 </div>
             </div>
@@ -84,7 +84,9 @@ class FeedbackSlider {
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         this.swiper = new Swiper('.feedback-swiper', {
+            modules: [Navigation, Pagination],
             slidesPerView: 1,
+            slidesPerGroup: 1,
             spaceBetween: 0,
             loop: false,
             grabCursor: true,
@@ -93,7 +95,7 @@ class FeedbackSlider {
                 el: '.feedback-pagination',
                 clickable: true,
                 bulletClass: 'swiper-pagination-bullet',
-                bulletActiveClass: 'swiper-pagination-bullet-active'
+                bulletActiveClass: 'swiper-pagination-bullet-active',
             },
             navigation: {
                 nextEl: nextBtn,
@@ -102,11 +104,13 @@ class FeedbackSlider {
             breakpoints: {
                 768: {
                     slidesPerView: 2,
-                    spaceBetween: 20,
+                    slidesPerGroup: 2,
+                    spaceBetween: 24,
                 },
                 1024: {
                     slidesPerView: 3,
-                    spaceBetween: 30,
+                    slidesPerGroup: 3,
+                    spaceBetween: 24,
                 }
             },
             on: {
@@ -121,24 +125,12 @@ class FeedbackSlider {
                 }
             }
         });
-        // Ініціальне оновлення кнопок
         this.updateNavigationButtons();
-        // Додавання обробників подій для кнопок навігації
-        prevBtn.addEventListener('click', () => {
-            if (!prevBtn.classList.contains('disabled')) {
-                this.swiper.slidePrev();
-            }
-        });
-        nextBtn.addEventListener('click', () => {
-            if (!nextBtn.classList.contains('disabled')) {
-                this.swiper.slideNext();
-            }
-        });
     }
     updateNavigationButtons() {
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        // Оновлення стану кнопки "Назад"
+
         if (this.swiper.isBeginning) {
             prevBtn.classList.add('disabled');
             prevBtn.setAttribute('disabled', 'true');
@@ -146,7 +138,7 @@ class FeedbackSlider {
             prevBtn.classList.remove('disabled');
             prevBtn.removeAttribute('disabled');
         }
-        // Оновлення стану кнопки "Вперед"
+
         if (this.swiper.isEnd) {
             nextBtn.classList.add('disabled');
             nextBtn.setAttribute('disabled', 'true');
@@ -156,7 +148,7 @@ class FeedbackSlider {
         }
     }
 }
-// Ініціалізація після завантаження DOM
+
 document.addEventListener('DOMContentLoaded', () => {
     new FeedbackSlider();
 });
