@@ -2,9 +2,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 import { generateStars } from './helpers';
-import { productsData } from './handlers';
-
-// , openOrderModal
+import { openOrderModal, productsData } from './handlers';
 
 document.addEventListener('click', event => {
   const btn = event.target.closest('.details-btn');
@@ -15,8 +13,6 @@ document.addEventListener('click', event => {
   const product = productsData.find(p => p._id === id);
   if (product) fillModal(product);
 });
-
-
 
 export let orderData = {
   id: '',
@@ -47,7 +43,6 @@ function fillModal(product) {
 
   document.querySelector('#rating').innerHTML = generateStars(product.rate);
 
-
   const colorsHTML = product.color
     .map(
       (color, i) => `
@@ -69,7 +64,7 @@ function fillModal(product) {
 
   modal.classList.add('is-open');
   // document.body.classList.add('modal-open');
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow = 'hidden';
 
   initColorCheckboxes();
 
@@ -79,7 +74,6 @@ function fillModal(product) {
     .querySelector('[data-modal-close]')
     .addEventListener('click', closeModal);
 }
-
 
 function initColorCheckboxes() {
   const checkboxes = document.querySelectorAll('.color-checkbox');
@@ -97,7 +91,6 @@ function initColorCheckboxes() {
   });
 }
 
-
 document
   .querySelector('.modal-order-btn')
   .addEventListener('click', function (e) {
@@ -107,11 +100,11 @@ document
 
     if (!checkedBox) {
       iziToast.warning({
-            title: 'Увага',
-            message: `Оберіть, будь ласка, колір`,
-            position: 'center',
-            timeout: 2000,
-          });
+        title: 'Увага',
+        message: `Оберіть, будь ласка, колір`,
+        position: 'center',
+        timeout: 2000,
+      });
       return;
     }
     orderData.color = checkedBox.value;
@@ -120,7 +113,6 @@ document
 
     openOrderModal();
   });
-
 
 function closeModal() {
   const modal = document.querySelector('[data-modal]');
@@ -147,4 +139,3 @@ function handleEscClose(event) {
     closeModal();
   }
 }
-
