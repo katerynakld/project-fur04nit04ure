@@ -22,7 +22,7 @@
 .feedback-slider-wrapper {
     margin-top: 80px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 12px;
 }
 
