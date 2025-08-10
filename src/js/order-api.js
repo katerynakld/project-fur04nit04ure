@@ -7,7 +7,6 @@ import { closeOrderModal } from './handlers';
 const BASE_URL = 'https://furniture-store.b.goit.study/api';
 
 export async function postOrder(orderInfo) {
-  console.log(orderInfo);
   try {
     const response = await axios.post(`${BASE_URL}/orders`, orderInfo, {
       headers: {
