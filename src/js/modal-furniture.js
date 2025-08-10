@@ -42,7 +42,7 @@ function fillModal(product) {
   ).innerHTML = `${product.price} <span class="price-currency">грн</span>`;
 
   document.querySelector('#rating').innerHTML = generateStars(product.rate);
-
+  console.log(generateStars(product.rate));
   const colorsHTML = product.color
     .map(
       (color, i) => `
