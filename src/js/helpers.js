@@ -1,6 +1,6 @@
-import starFull from '../img/svg/star-full.svg?url';
-import starHalf from '../img/svg/star-half.svg?url';
-import starEmpty from '../img/svg/star-empty.svg?url';
+import starFull from '../img/svg/star-full.svg';
+import starHalf from '../img/svg/star-half.svg';
+import starEmpty from '../img/svg/star-empty.svg';
 
 function roundRating(rating) {
   if (rating >= 3.3 && rating <= 3.7) {
