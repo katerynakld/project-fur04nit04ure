@@ -64,8 +64,6 @@ export async function handleOrderSubmit(event, orderDetails) {
       });
 
       closeOrderModal();
-
-      console.log('Order created:', data);
     }
   } catch (error) {
     iziToast.error({
