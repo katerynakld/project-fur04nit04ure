@@ -1,58 +1,47 @@
-.container {
-    width: 100%;
-    max-width: 1440px;
-    padding-inline: 16px;
-    margin-inline: auto;
-}
-
-/* ======== Основний стиль футера (Mobile-first) ======== */
 .footer {
-    background-color: #720E0E;
+    background-color: var(--color-madang);
     color: #fff;
-    padding-block: 30px;
-    text-align: center;
+    padding: 24px 0 32px;
 }
 
-.footer .container {
+.footer-wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 24px;
+    position: relative;
 }
 
 /* Логотип */
 .footer-logo {
     display: block;
     cursor: pointer;
+    fill: white;
     transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
+    margin: 0 auto;
+    margin-bottom: 48px;
 }
 
 .footer-logo:hover,
 .footer-logo:focus {
-    opacity: 0.8;
-}
-
-/* Авторські права */
-.footer-copyright {
-    font-size: 14px;
-    white-space: nowrap;
+    opacity: 0.5;
 }
 
 /* Навігація */
 .footer-nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 24px;
 }
 
 .footer-nav-link {
     color: #fff;
     text-decoration: none;
-    transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
+    transition: transform 250ms cubic-bezier(0.77, 0, 0.18, 1),
+        text-shadow 0.3s ease;
     cursor: pointer;
     font-size: 16px;
     display: block;
@@ -61,73 +50,82 @@
 .footer-nav-link:hover,
 .footer-nav-link:focus,
 .footer-nav-link:active {
-    color: #FFD700;
     transform: scale(1.05);
+    opacity: 0.5;
 }
 
 /* Соціальні іконки */
 .footer-social-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
-    gap: 20px;
+    gap: 24px;
+    margin-bottom: 24px;
 }
 
 .footer-social-link svg {
     fill: #fff;
-    transition: fill 250ms ease, transform 250ms ease;
+    transition: fill 250ms cubic-bezier(0.77, 0, 0.18, 1),
+        transform 250ms cubic-bezier(0.77, 0, 0.18, 1);
 }
 
 .footer-social-link:hover svg,
 .footer-social-link:focus svg,
 .footer-social-link:active svg {
-    fill: #000;
-    transform: scale(1.2);
+    fill: #080C09;
+    transform: scale(1.05);
+}
+
+/* Авторські права */
+.footer-copyright {
+    font-size: 14px;
+    margin: 0 auto;
 }
 
 /* ======== Tablet (768px і вище) ======== */
 @media (min-width: 768px) {
-    .footer .container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        text-align: left;
-        gap: 32px;
+    .footer-social-list {
+        justify-content: center;
     }
 
     .footer-nav-list {
         flex-direction: row;
-        gap: 30px;
-        align-items: center;
     }
 }
 
 /* ======== Desktop (1440px і вище) ======== */
 @media (min-width: 1440px) {
-    .container {
-        padding-inline: 80px;
+    .footer {
+        padding-bottom: 24px;
+    }
+
+    .footer-wrapper {
+        flex-direction: row;
     }
 
     .footer-logo {
-        width: 150px;
+        margin: 0;
+    }
+
+    .links-wrap {
+        display: flex;
+        gap: 80px;
+        margin-left: auto;
     }
 
     .footer-nav-link {
         font-size: 18px;
     }
 
-    .footer-social-link svg {
-        width: 28px;
-        height: 28px;
-    }
-
     .footer-nav-list {
-        gap: 40px;
+        margin: 0;
     }
 
     .footer-social-list {
-        gap: 28px;
+        margin: 0;
+    }
+
+    .footer-copyright {
+        margin: 0;
+        position: absolute;
+        left: 312px;
     }
 }
