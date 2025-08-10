@@ -25,7 +25,9 @@
 .logo {
   width: 163px;
   height: 70px;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
 }
 
