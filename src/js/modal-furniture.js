@@ -65,6 +65,7 @@ function fillModal(product) {
   modal.classList.add('is-open');
   // document.body.classList.add('modal-open');
   document.body.style.overflow = 'hidden';
+  
 
   initColorCheckboxes();
 
