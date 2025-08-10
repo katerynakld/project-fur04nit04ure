@@ -155,7 +155,10 @@ async function reloadFirstPage() {
     showLoader();
 
     const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(page));
-    refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures);
+      refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures);
+      
+    productsData.length = 0;
+    productsData.push(...data.furnitures); 
 
     totalPages = Math.ceil((data.totalItems ?? 0) / LIMIT) || (data.totalPages ?? 1);
     if (totalPages > 1) refs.showMoreBtn.classList.remove("visually-hidden");
