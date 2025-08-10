@@ -268,13 +268,13 @@ body.menu-open {
    ======================= */
 @media (min-width: 768px) and (max-width: 1439px) {
   .menu-toggle-wrapper {
-    position: relative;
+    /* position: relative; */
     display: inline-block;
   }
 
   .mobile-menu {
     position: absolute;
-    top: 100%;
+    top: -100%;
     right: 0;
     width: 250px;
     background: #ffffff;
