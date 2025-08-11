@@ -1,4 +1,4 @@
-<div class="order-modal-overlay">
+<div class="order-modal-overlay" data-modal>
   <div class="order-modal">
     <button class="modal-close" aria-label="Закрити">
       <svg class="icon" width="32" height="32">
@@ -6,40 +6,57 @@
       </svg>
     </button>
     <h2 class="secondary-heading">Замовити зворотний зв’язок</h2>
-    <form id="orderForm" class="order-form">
+    <form id="orderForm" class="order-form" novalidate>
       <label class="order-form-label">
         Email*
         <input
           type="email"
           name="email"
-          class="order-form-input"
-          placeholder="123@gmail.com"
+          class="order-form-input form-control"
+          placeholder="your_email@gmail.com"
+          autocomplete="off"
           required
         />
+        <div class="invalid-feedback">
+          <p class="body-text">Будь ласка, введіть правильний email.</p>
+        </div>
       </label>
+
       <label class="order-form-label">
         Телефон*
         <input
           type="text"
           name="phone"
           id="phone-input"
-          class="order-form-input"
+          class="order-form-input form-control"
           placeholder="+38 (099) 123 22 11"
           required
           pattern="^\+?[0-9\s\-\(\)]{7,}$"
         />
+        <div class="invalid-feedback">
+          <p class="body-text">Будь ласка, введіть правильний телефон.</p>
+        </div>
       </label>
+
       <label class="order-form-label">
-        Коментар
+        Коментар*
         <textarea
           name="comment"
-          class="order-form-input"
+          class="order-form-input form-control"
           placeholder="Type your message..."
+          minlength="5"
+          required
           rows="4"
         ></textarea>
+        <div class="invalid-feedback">
+          <p class="body-text">Коментар має містити не менше 5 символів.</p>
+        </div>
       </label>
-      <button type="submit" class="submit-btn">Надіслати заявку</button>
+
+      <button type="submit" class="submit-btn" disabled>
+        Надіслати заявку
+      </button>
     </form>
-    <div id="loader" class="loader hidden"></div>
+    <div id="loader-modal" class="loader-modal visually-hidden"></div>
   </div>
 </div>

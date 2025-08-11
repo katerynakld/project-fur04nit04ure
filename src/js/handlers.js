@@ -4,16 +4,19 @@ import { refs } from './refs.js';
 import { FURNITURES_END_POINT } from './constants.js';
 import { getDataByQuery } from './furniture-api.js';
 import { LIMIT } from './constants.js';
+import {
+  closeOrderModal,
+  handleEscClose,
+  handleOverlayClose,
+} from './order-modal.js';
 
 export function openOrderModal() {
   refs.orderModalBackdrop.classList.add('is-open');
   document.body.style.overflow = 'hidden';
-}
 
-export function closeOrderModal() {
-  refs.orderModalBackdrop.classList.remove('is-open');
-  document.body.style.overflow = '';
-  refs.orderFormEl.reset();
+  refs.orderModalCloseBtn.addEventListener('click', closeOrderModal);
+  refs.orderModalBackdrop.addEventListener('click', handleOverlayClose);
+  document.addEventListener('keydown', handleEscClose);
 }
 
 const categoryImageMap = {
@@ -181,10 +184,10 @@ async function reloadFirstPage() {
     showLoader();
 
     const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(page));
-      refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures);
-      
+    refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures);
+
     productsData.length = 0;
-    productsData.push(...data.furnitures); 
+    productsData.push(...data.furnitures);
 
     totalPages =
       Math.ceil((data.totalItems ?? 0) / LIMIT) || (data.totalPages ?? 1);
