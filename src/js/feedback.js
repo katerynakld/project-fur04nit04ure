@@ -4,6 +4,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import axios from 'axios';
+import starFull from '../img/svg/star-full.svg';
+import starHalf from '../img/svg/star-half.svg';
+import starEmpty from '../img/svg/star-empty.svg';
 
 class FeedbackSlider {
   constructor() {
@@ -59,11 +62,11 @@ class FeedbackSlider {
 
     for (let i = 1; i <= 5; i++) {
       if (i <= roundedRating) {
-        starsHtml += `<svg class="star" width="23" height="23"><use href="/img/svg/icon.svg#star-full"></use></svg>`;
+        starsHtml += `<svg class="star" width="20" height="20"><use href=${starFull}></use></svg>`;
       } else if (i - 0.5 === roundedRating) {
-        starsHtml += `<svg class="star" width="24" height="24"><use href="/img/svg/icon.svg#half-star"></use></svg>`;
+        starsHtml += `<svg class="star" width="20" height="20"><use href=${starHalf}></use></svg>`;
       } else {
-        starsHtml += `<svg class="star" width="23" height="23"><use href="/img/svg/icon.svg#star-empty"></use></svg>`;
+        starsHtml += `<svg class="star" width="20" height="20"><use href=${starEmpty}></use></svg>`;
       }
     }
     return starsHtml;

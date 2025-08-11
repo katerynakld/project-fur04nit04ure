@@ -1,3 +1,7 @@
+import starFull from '../img/svg/star-full.svg';
+import starHalf from '../img/svg/star-half.svg';
+import starEmpty from '../img/svg/star-empty.svg';
+
 function roundRating(rating) {
   if (rating >= 3.3 && rating <= 3.7) {
     return 3.5;
@@ -15,11 +19,11 @@ export function generateStars(rating) {
 
   for (let i = 1; i <= 5; i++) {
     if (i <= roundedRating) {
-      starsHtml += `<svg class="star"><use href="./img/svg/icon.svg#star-full"></use></svg>`;
+      starsHtml += `<svg class="star" width="16" height="16"><use href=${starFull} width="16" height="16"></use></svg>`;
     } else if (i - 0.5 === roundedRating) {
-      starsHtml += `<svg class="star"><use href="./img/svg/icon.svg#half-star"></use></svg>`;
+      starsHtml += `<svg class="star" width="16" height="16"><use href=${starHalf} width="16" height="16"></use></svg>`;
     } else {
-      starsHtml += `<svg class="star"><use href="./img/svg/icon.svg#star-empty"></use></svg>`;
+      starsHtml += `<svg class="star" width="16" height="16"><use href=${starEmpty} width="16" height="16"></use></svg>`;
     }
   }
   return starsHtml;
