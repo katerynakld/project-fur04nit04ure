@@ -11,26 +11,29 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <script type="module" crossorigin src="/project-fur04nit04ure/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-fur04nit04ure/assets/vendor-Cw2x0rFR.js">
     <link rel="stylesheet" crossorigin href="/project-fur04nit04ure/assets/vendor-BE7bUg82.css">
-    <link rel="stylesheet" crossorigin href="/project-fur04nit04ure/assets/index-dGubBjPs.css">
+    <link rel="stylesheet" crossorigin href="/project-fur04nit04ure/assets/index-G48uT6o0.css">
   </head>
 
   <body>
     <header class="header">
   <div class="container">
     <div class="header-container">
-      <a href="index.html" class="logo" id="logo">
+      <a href="./index.html" class="logo" id="logo">
         <img src="/project-fur04nit04ure/img/svg/logo.svg" alt="Company-Logo" />
       </a>
 
       <nav class="nav">
-        <a href="#furniture" class="nav-link">Наші меблі</a>
-        <a href="#about-us" class="nav-link">Про нас</a>
-        <a href="#faq-section" class="nav-link">Часті питання</a>
-        <a href="#feedback" class="nav-link">Відгуки</a>
-        <a href="#furniture" class="cta-button">До покупок</a>
+        <ul class="desktop-navigation-list">
+          <li><a href="#furniture" class="nav-link">Наші меблі</a></li>
+          <li><a href="#about-us" class="nav-link">Про нас</a></li>
+          <li><a href="#faq-section" class="nav-link">Часті питання</a></li>
+          <li><a href="#feedback" class="nav-link">Відгуки</a></li>
+          <li><a href="#furniture" class="cta-button">До покупок</a></li>
+        </ul>
       </nav>
 
       <div class="menu-toggle-buttons">
@@ -45,17 +48,24 @@
           </svg>
         </button>
       </div>
-    </div>
-
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="mobile-menu-content">
-        <nav class="mobile-nav">
-          <a href="#home" class="mobile-nav-link">Наші меблі</a>
-          <a href="#about" class="mobile-nav-link">Про нас</a>
-          <a href="#furniture" class="mobile-nav-link">Часті питання</a>
-          <a href="#contact" class="mobile-nav-link">Відгуки</a>
-          <a href="#furniture" class="mobile-cta-button">До покупок</a>
-        </nav>
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+          <nav class="mobile-nav">
+            <ul class="mobile-navigation-list">
+              <li>
+                <a href="#furniture" class="mobile-nav-link">Наші меблі</a>
+              </li>
+              <li><a href="#about-us" class="mobile-nav-link">Про нас</a></li>
+              <li>
+                <a href="#faq-section" class="mobile-nav-link">Часті питання</a>
+              </li>
+              <li><a href="#feedback" class="mobile-nav-link">Відгуки</a></li>
+              <li>
+                <a href="#furniture" class="mobile-cta-button">До покупок</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </div>
@@ -284,7 +294,7 @@
   </div>
 </div>
 
-      <div class="order-modal-overlay">
+      <div class="order-modal-overlay" data-modal>
   <div class="order-modal">
     <button class="modal-close" aria-label="Закрити">
       <svg class="icon" width="32" height="32">
@@ -298,35 +308,52 @@
         <input
           type="email"
           name="email"
-          class="order-form-input"
-          placeholder="123@gmail.com"
+          class="order-form-input form-control"
+          placeholder="your_email@gmail.com"
+          autocomplete="off"
           required
         />
+        <div class="invalid-feedback">
+          <p class="body-text">Будь ласка, введіть правильний email.</p>
+        </div>
       </label>
+
       <label class="order-form-label">
         Телефон*
         <input
           type="text"
           name="phone"
           id="phone-input"
-          class="order-form-input"
+          class="order-form-input form-control"
           placeholder="+38 (099) 123 22 11"
           required
           pattern="^\+?[0-9\s\-\(\)]{7,}$"
         />
+        <div class="invalid-feedback">
+          <p class="body-text">Будь ласка, введіть правильний телефон.</p>
+        </div>
       </label>
+
       <label class="order-form-label">
-        Коментар
+        Коментар*
         <textarea
           name="comment"
-          class="order-form-input"
+          class="order-form-input form-control"
           placeholder="Type your message..."
+          minlength="5"
+          required
           rows="4"
         ></textarea>
+        <div class="invalid-feedback">
+          <p class="body-text">Коментар має містити не менше 5 символів.</p>
+        </div>
       </label>
-      <button type="submit" class="submit-btn">Надіслати заявку</button>
+
+      <button type="submit" class="submit-btn" disabled>
+        Надіслати заявку
+      </button>
     </form>
-    <div id="loader" class="loader hidden"></div>
+    <div id="loader-modal" class="loader-modal visually-hidden"></div>
   </div>
 </div>
 
@@ -335,7 +362,7 @@
     <footer class="footer">
   <div class="container">
     <div class="footer-wrapper">
-      <a href="index.html" class="footer-logo">
+      <a href="./index.html" class="footer-logo">
         <svg class="footer-logo-icon" width="220" height="49">
           <use href="/project-fur04nit04ure/img/svg/footer-logo.svg"></use>
         </svg>
