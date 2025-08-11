@@ -35,11 +35,17 @@ export function createCategoriesGallery(data) {
         </li>
     `;
     const markup = data.map(({ _id, name }) => {
-        const imageUrl = `/img/${categoryImageMap[_id]}`;        
+        const file2x = categoryImageMap[_id];
+        const file1x = file2x.replace('_2x', '_1x');
+        console.log(file2x);
+        console.log(file1x);
+        
+
+        const style = `background-image: image-set(url('../img/${file1x}') 1x, url('../img/${file2x}') 2x);`.trim();      
         
         return `
             <li class="category-item">   
-                <div class="category-thumb" data-category-id="${_id}" style="background-image: url('${imageUrl}')" >
+                <div class="category-thumb" data-category-id="${_id}" style="${style}" >
                 <p class="category-title">${name}</p>
                 </div>
             </li>
@@ -74,7 +80,7 @@ export async function initFurnitureGallery() {
         page = 1
         isLoading = true;
         refs.showMoreBtn.classList.add("visually-hidden");
-        showLoader();
+        showfLoader();
 
         const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(page));
         refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures);
@@ -88,7 +94,7 @@ export async function initFurnitureGallery() {
     } catch (error) {
         alert("Помилка завантаження меблів:", error.message);
     } finally {
-        hideLoader();
+        hidefLoader();
         isLoading = false;
     }
 };
@@ -103,7 +109,7 @@ export async function loadMoreHandler() {
 
     isLoading = true;
     refs.showMoreBtn.disabled = true;
-    showLoader();
+    showfLoader();
 
     try {
         const nextPage = page + 1;
@@ -120,7 +126,7 @@ export async function loadMoreHandler() {
     } catch(error) {
         alert("Помилка при завантаженні наступної сторінки:", error.message);
     } finally {
-        hideLoader();
+        hidefLoader();
         refs.showMoreBtn.disabled = false;
         isLoading = false;
     }
@@ -152,7 +158,7 @@ async function reloadFirstPage() {
     page = 1;
     refs.showMoreBtn.classList.add("visually-hidden");
     refs.furnitureGallery.innerHTML = "";
-    showLoader();
+    showfLoader();
 
     const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(page));
       refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures);
@@ -165,18 +171,18 @@ async function reloadFirstPage() {
   } catch (error) {
     alert("Помилка перезавантаження першої сторінки:", error.message);
   } finally {
-      hideLoader();
+      hidefLoader();
   }
 }
 
-function showLoader() {
-  refs.loader?.classList.remove("hidden");
-  refs.loader?.setAttribute("aria-hidden", "false");
+function showfLoader() {
+  refs.floader?.classList.remove("hidden");
+  refs.floader?.setAttribute("aria-hidden", "false");
 }
 
-function hideLoader() {
-  refs.loader?.classList.add("hidden");
-  refs.loader?.setAttribute("aria-hidden", "true");
+function hidefLoader() {
+  refs.floader?.classList.add("hidden");
+  refs.floader?.setAttribute("aria-hidden", "true");
 }
 
 
