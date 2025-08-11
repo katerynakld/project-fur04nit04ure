@@ -51,6 +51,10 @@
   --font-family: 'Raleway', sans-serif;
 }
 
+*:not(svg) {
+  transform-origin: inherit !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -109,5 +113,4 @@ body {
     line-height: 120%;
     letter-spacing: 0.01em;
   }
-
 }
