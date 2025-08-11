@@ -51,7 +51,7 @@ export function createCategoriesGallery(data) {
       const file1x = file2x.replace('_2x', '_1x');
 
       const style =
-        `background-image: image-set(url('/img/${file1x}') 1x, url('/img/${file2x}') 2x);`.trim();
+        `background-image: image-set(url('./img/${file1x}') 1x, url('./img/${file2x}') 2x);`.trim();
 
       return `
             <li class="category-item">   
