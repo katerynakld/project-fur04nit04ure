@@ -65,7 +65,7 @@
   color: var(--color-neutral-darkest);
 }
 
-.order-form-input {
+.order-form-input:required {
   margin-top: 8px;
   width: 100%;
   padding: 8px 12px;
@@ -88,9 +88,8 @@
   outline: none;
 }
 
-.order-form-input.error-state {
-  border-color: var(--color-madang);
-  color: var(--color-madang);
+.order-form-input:user-invalid {
+  border-color: var(--color-madang-dark);
 }
 
 .order-form-input::placeholder {
@@ -112,6 +111,11 @@
 }
 
 .invalid-feedback {
+  display: none;
+}
+
+.order-form-input:user-invalid + .invalid-feedback {
+  display: block;
   color: var(--color-madang-dark);
 }
 
