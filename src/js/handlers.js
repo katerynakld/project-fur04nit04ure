@@ -4,20 +4,7 @@ import { refs } from './refs.js';
 import { FURNITURES_END_POINT } from './constants.js';
 import { getDataByQuery } from './furniture-api.js';
 import { LIMIT } from './constants.js';
-import {
-  closeOrderModal,
-  handleEscClose,
-  handleOverlayClose,
-} from './order-modal.js';
 
-export function openOrderModal() {
-  refs.orderModalBackdrop.classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-
-  refs.orderModalCloseBtn.addEventListener('click', closeOrderModal);
-  refs.orderModalBackdrop.addEventListener('click', handleOverlayClose);
-  document.addEventListener('keydown', handleEscClose);
-}
 
 const categoryImageMap = {
   '66504a50a1b2c3d4e5f6a7b8': 'Soft_furniture_2x.jpg',
