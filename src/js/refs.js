@@ -10,4 +10,5 @@ export const refs = {
   furnitureGallery: document.querySelector('.furniture-gallery'),
   showMoreBtn: document.querySelector('.show-more-button'),
   loader: document.getElementById('loader'),
+
 };

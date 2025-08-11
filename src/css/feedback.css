@@ -1,6 +1,8 @@
-.section-feedback .container {
-  padding: 64px 20px;
+
+.section-feedback {
+    padding: 64px 0;
 }
+
 
 .feedback-name {
   width: 100%;
@@ -10,13 +12,14 @@
   font-size: 36px;
 }
 
-.feedback-p {
-  padding-top: 24px;
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 160%;
-  color: var(--color-scheme-1-text);
+
+.feedback-p{
+    margin-top: 24px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: var(--color-scheme-1-text);
 }
 
 .feedback-slider-wrapper {
@@ -137,9 +140,11 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .section-feedback .container {
-    padding: 32px;
-  }
+
+    .section-feedback {
+        padding: 32px 0;
+    }
+   
 
   .feedback-controls {
     justify-content: space-between;
@@ -151,10 +156,12 @@
 }
 
 @media only screen and (min-width: 1440px) {
-  .section-feedback .container {
-    padding: 64px;
-  }
-  .feedback-text {
-    max-width: 373px;
-  }
+
+    .section-feedback {
+        padding: 64px 0;
+    }
+    .feedback-text {
+        max-width: 373px;
+    }
 }
+
