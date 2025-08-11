@@ -1,8 +1,8 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-import { generateStars } from './helpers';
-import { openOrderModal, productsData } from './handlers';
+import { generateStars, openOrderModal } from './helpers.js';
+import { productsData } from './handlers.js';
 
 document.addEventListener('click', event => {
   const btn = event.target.closest('.details-btn');

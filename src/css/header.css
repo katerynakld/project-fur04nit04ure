@@ -6,6 +6,7 @@
 }
 
 .header-container {
+  position: relative;
   max-width: 1440px;
   display: flex;
   align-items: center;
@@ -33,6 +34,10 @@
     DESKTOP NAVIGATION
    =============================================== */
 .nav {
+  display: none;
+}
+
+.desktop-navigation-list {
   display: none;
   list-style: none;
   gap: 32px;
@@ -170,7 +175,7 @@
   gap: 32px;
 }
 
-.mobile-nav {
+.mobile-navigation-list {
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -296,7 +301,7 @@ body.menu-open {
     align-items: flex-end;
   }
 
-  .mobile-nav {
+  .mobile-navigation-list {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -334,6 +339,12 @@ body.menu-open {
    ======================= */
 @media (min-width: 1440px) {
   .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .desktop-navigation-list {
     display: flex;
     justify-content: center;
     align-items: center;

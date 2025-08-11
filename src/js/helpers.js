@@ -1,6 +1,21 @@
 import starFull from '/img/svg/star-full.svg?raw';
 import starHalf from '/img/svg/star-half.svg?raw';
 import starEmpty from '/img/svg/star-empty.svg?raw';
+import {
+  closeOrderModal,
+  handleEscClose,
+  handleOverlayClose,
+} from './order-modal.js';
+import { refs } from './refs.js';
+
+export function openOrderModal() {
+  refs.orderModalBackdrop.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+
+  refs.orderModalCloseBtn.addEventListener('click', closeOrderModal);
+  refs.orderModalBackdrop.addEventListener('click', handleOverlayClose);
+  document.addEventListener('keydown', handleEscClose);
+}
 
 function roundRating(rating) {
   if (rating >= 3.3 && rating <= 3.7) {
