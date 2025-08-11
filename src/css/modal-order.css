@@ -65,7 +65,7 @@
   color: var(--color-neutral-darkest);
 }
 
-.order-form-input {
+.order-form-input:required {
   margin-top: 8px;
   width: 100%;
   padding: 8px 12px;
@@ -88,9 +88,8 @@
   outline: none;
 }
 
-.order-form-input.error-state {
-  border-color: var(--color-madang);
-  color: var(--color-madang);
+.order-form-input:user-invalid {
+  border-color: var(--color-madang-dark);
 }
 
 .order-form-input::placeholder {
@@ -111,11 +110,25 @@
   transition: all 250ms cubic-bezier(0.77, 0, 0.18, 1);
 }
 
+.invalid-feedback {
+  display: none;
+}
+
+.order-form-input:user-invalid + .invalid-feedback {
+  display: block;
+  color: var(--color-madang-dark);
+}
+
 .submit-btn:hover {
   background-color: var(--color-madang-light);
 }
 
-.loader {
+.submit-btn:disabled {
+  background-color: var(--color-madang-lighter);
+  cursor: auto;
+}
+
+.loader-modal {
   position: absolute;
   top: 50%;
   left: 50%;

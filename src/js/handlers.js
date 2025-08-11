@@ -5,16 +5,6 @@ import { FURNITURES_END_POINT } from './constants.js';
 import { getDataByQuery } from './furniture-api.js';
 import { LIMIT } from './constants.js';
 
-export function openOrderModal() {
-  refs.orderModalBackdrop.classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-}
-
-export function closeOrderModal() {
-  refs.orderModalBackdrop.classList.remove('is-open');
-  document.body.style.overflow = '';
-  refs.orderFormEl.reset();
-}
 
 const categoryImageMap = {
   '66504a50a1b2c3d4e5f6a7b8': 'Soft_furniture_2x.jpg',
