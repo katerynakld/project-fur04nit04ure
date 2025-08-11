@@ -4,7 +4,7 @@ import{a as b,i as d,S as j,N as F,P as H,A as O,I as P}from"./assets/vendor-Cw2
                 <p class="category-title">Всі товари</p>
             </div>
         </li>
-    `,r=e.map(({_id:a,name:s})=>{const n=R[a],c=`background-image: image-set(url('/img/${n.replace("_2x","_1x")}') 1x, url('/img/${n}') 2x);`.trim();return`
+    `,r=e.map(({_id:a,name:s})=>{const n=R[a],c=`background-image: image-set(url('./img/${n.replace("_2x","_1x")}') 1x, url('./img/${n}') 2x);`.trim();return`
             <li class="category-item">   
                 <div class="category-thumb" data-category-id="${a}" style="${c}" >
                 <p class="category-title">${s}</p>
