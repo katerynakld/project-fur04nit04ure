@@ -2,7 +2,6 @@ import axios from 'axios';
 import { refs } from './refs';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import { closeOrderModal } from './handlers';
 
 const BASE_URL = 'https://furniture-store.b.goit.study/api';
 

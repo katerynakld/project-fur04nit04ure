@@ -5,9 +5,10 @@ export const refs = {
   orderModal: document.querySelector('.order-modal'),
   orderModalCloseBtn: document.querySelector('.modal-close'),
   orderFormEl: document.querySelector('.order-form'),
-  orderModalLoader: document.querySelector('.loader'),
-  categoriesGallery: document.querySelector(".furniture-categories-list"),
-  furnitureGallery: document.querySelector(".furniture-gallery"),
-  showMoreBtn: document.querySelector(".show-more-button"),
-  floader: document.getElementById("floader"),
+  orderModalLoader: document.querySelector('.loader-modal'),
+  categoriesGallery: document.querySelector('.furniture-categories-list'),
+  furnitureGallery: document.querySelector('.furniture-gallery'),
+  showMoreBtn: document.querySelector('.show-more-button'),
+  loader: document.getElementById('loader'),
+
 };
