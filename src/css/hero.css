@@ -1,7 +1,7 @@
 .hero {
   margin-top: 1px;
   padding: 156px 0;
-  background-image: url('../img/svg/hero_img/hero-bg-mob.png');
+  background-image: url('/img/svg/hero_img/hero-bg-mob.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -11,21 +11,21 @@
   max-width: 335px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-resolution: 192dpi) {
   .hero {
-    background-image: url('../img/svg/hero_img/hero-bg-mob-2x.png');
+    background-image: url('/img/svg/hero_img/hero-bg-mob-2x.png');
   }
 }
 
 @media only screen and (min-width: 768px) {
   .hero {
     padding: 36px 0;
-    background-image: url('../img/svg/hero_img/hero-bg-tab.jpg');
+    background-image: url('/img/svg/hero_img/hero-bg-tab.jpg');
   }
 
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  @media only screen and (min-resolution: 192dpi) {
     .hero {
-      background-image: url('../img/svg/hero_img/hero-bg-tab-2x.jpg');
+      background-image: url('/img/svg/hero_img/hero-bg-tab-2x.jpg');
     }
   }
 
@@ -37,12 +37,12 @@
 @media only screen and (min-width: 1440px) {
   .hero {
     padding: 92px 0;
-    background-image: url('../img/svg/hero_img/hero-bg-dec.jpg');
+    background-image: url('/img/svg/hero_img/hero-bg-dec.jpg');
   }
 
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  @media only screen and (min-width: 1440px) and (min-resolution: 192dpi) {
     .hero {
-      background-image: url('../img/svg/hero_img/hero-bg-dec-2x.jpg');
+      background-image: url('/img/svg/hero_img/hero-bg-dec-2x.jpg');
     }
   }
 }
