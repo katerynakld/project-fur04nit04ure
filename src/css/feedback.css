@@ -1,8 +1,6 @@
-
 .section-feedback {
-    padding: 64px 0;
+  padding: 64px 0;
 }
-
 
 .feedback-name {
   width: 100%;
@@ -12,14 +10,13 @@
   font-size: 36px;
 }
 
-
-.feedback-p{
-    margin-top: 24px;
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 160%;
-    color: var(--color-scheme-1-text);
+.feedback-p {
+  margin-top: 24px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+  color: var(--color-scheme-1-text);
 }
 
 .feedback-slider-wrapper {
@@ -35,10 +32,21 @@
 
 .feedback-controls {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 16px;
   width: 100%;
   margin-top: 48px;
+}
+
+@media only screen and (max-width: 375px) {
+  .feedback-controls {
+    justify-content: center;
+  }
+
+  .feedback-nav-buttons {
+    margin-left: 0;
+  }
 }
 
 .feedback-pagination {
@@ -63,6 +71,12 @@
   display: flex;
   gap: 16px;
   margin-left: 20px;
+}
+
+@media only screen and (max-width: 375px) {
+  .feedback-nav-buttons {
+    margin-left: 0;
+  }
 }
 
 .feedback-pagination.swiper-pagination {
@@ -140,11 +154,9 @@
 }
 
 @media only screen and (min-width: 768px) {
-
-    .section-feedback {
-        padding: 32px 0;
-    }
-   
+  .section-feedback {
+    padding: 32px 0;
+  }
 
   .feedback-controls {
     justify-content: space-between;
@@ -156,12 +168,10 @@
 }
 
 @media only screen and (min-width: 1440px) {
-
-    .section-feedback {
-        padding: 64px 0;
-    }
-    .feedback-text {
-        max-width: 373px;
-    }
+  .section-feedback {
+    padding: 64px 0;
+  }
+  .feedback-text {
+    max-width: 373px;
+  }
 }
-
