@@ -5,7 +5,6 @@ import { FURNITURES_END_POINT } from './constants.js';
 import { getDataByQuery } from './furniture-api.js';
 import { LIMIT } from './constants.js';
 
-
 const categoryImageMap = {
   '66504a50a1b2c3d4e5f6a7b8': 'Soft_furniture_2x.jpg',
   '66504a50a1b2c3d4e5f6a7b9': 'Storage_systems_2x.jpg',
@@ -192,12 +191,12 @@ async function reloadFirstPage() {
   }
 }
 
-function showfLoader() {
+export function showfLoader() {
   refs.floader?.classList.remove('hidden');
   refs.floader?.setAttribute('aria-hidden', 'false');
 }
 
-function hidefLoader() {
+export function hidefLoader() {
   refs.floader?.classList.add('hidden');
   refs.floader?.setAttribute('aria-hidden', 'true');
 }
