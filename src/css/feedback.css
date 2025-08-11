@@ -1,5 +1,9 @@
+.section-feedback {
+    margin: 64px 0;
+}
+
 .section-feedback .container{
-    padding: 64px 20px;
+    padding: 0 20px;
 }
 
 .feedback-name{
@@ -11,7 +15,7 @@
 }
 
 .feedback-p{
-    padding-top: 24px;
+    margin-top: 24px;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 16px;
@@ -134,8 +138,12 @@
 }
 
 @media only screen and (min-width: 768px) {
+    .section-feedback {
+        margin: 32px 0;
+    }
+    
     .section-feedback .container {
-        padding: 32px;
+        padding: 0 32px;
     }
 
     .feedback-controls {
@@ -148,8 +156,12 @@
 }
 
 @media only screen and (min-width: 1440px) {
+    .section-feedback {
+        margin: 64px 0;
+    }
+
     .section-feedback .container {
-        padding: 64px;
+        padding: 0 64px;
     }
     .feedback-text {
         max-width: 373px;
