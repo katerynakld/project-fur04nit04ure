@@ -1,6 +1,6 @@
 .furniture-list {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 .section-title {
@@ -212,6 +212,10 @@
 }
 
 @media only screen and (min-width: 1440px) {
+  .furniture-list {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
   .show-more-button {
     width: 421px;
   }
