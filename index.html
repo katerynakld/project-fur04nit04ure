@@ -17,7 +17,7 @@
     <script type="module" crossorigin src="/project-fur04nit04ure/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-fur04nit04ure/assets/vendor-Cw2x0rFR.js">
     <link rel="stylesheet" crossorigin href="/project-fur04nit04ure/assets/vendor-BE7bUg82.css">
-    <link rel="stylesheet" crossorigin href="/project-fur04nit04ure/assets/index-knTTZAe7.css">
+    <link rel="stylesheet" crossorigin href="/project-fur04nit04ure/assets/index-zX7cR4Gh.css">
   </head>
 
   <body>
@@ -309,51 +309,56 @@
     </button>
     <h2 class="secondary-heading">Замовити зворотний зв’язок</h2>
     <form id="orderForm" class="order-form">
-      <label class="order-form-label">
-        Email*
-        <input
-          type="email"
-          name="email"
-          class="order-form-input form-control"
-          placeholder="your_email@gmail.com"
-          autocomplete="off"
-          required
-        />
+      <div class="input-wrapper">
+        <label class="order-form-label">
+          Email*
+          <input
+            type="email"
+            name="email"
+            class="order-form-input form-control"
+            placeholder="your_email@gmail.com"
+            autocomplete="off"
+            required
+          />
+        </label>
         <div class="invalid-feedback">
           <p class="body-text">Будь ласка, введіть правильний email.</p>
         </div>
-      </label>
+      </div>
 
-      <label class="order-form-label">
-        Телефон*
-        <input
-          type="text"
-          name="phone"
-          id="phone-input"
-          class="order-form-input form-control"
-          placeholder="+38 (099) 123 22 11"
-          required
-          pattern="^\+?[0-9\s\-\(\)]{7,}$"
-        />
+      <div class="input-wrapper">
+        <label class="order-form-label">
+          Телефон*
+          <input
+            type="text"
+            name="phone"
+            id="phone-input"
+            class="order-form-input form-control"
+            placeholder="+38 (099) 123 22 11"
+            required
+            pattern="^\+?[0-9\s\-\(\)]{7,}$"
+          />
+        </label>
         <div class="invalid-feedback">
           <p class="body-text">Будь ласка, введіть правильний телефон.</p>
         </div>
-      </label>
-
-      <label class="order-form-label">
-        Коментар*
-        <textarea
-          name="comment"
-          class="order-form-input form-control"
-          placeholder="Type your message..."
-          minlength="5"
-          required
-          rows="4"
-        ></textarea>
+      </div>
+      <div class="input-wrapper">
+        <label class="order-form-label">
+          Коментар*
+          <textarea
+            name="comment"
+            class="order-form-input form-control"
+            placeholder="Type your message..."
+            minlength="5"
+            required
+            rows="4"
+          ></textarea>
+        </label>
         <div class="invalid-feedback">
           <p class="body-text">Коментар має містити не менше 5 символів.</p>
         </div>
-      </label>
+      </div>
 
       <button type="submit" class="submit-btn" disabled>
         Надіслати заявку
