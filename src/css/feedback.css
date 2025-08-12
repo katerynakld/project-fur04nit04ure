@@ -23,7 +23,7 @@
   margin-top: 80px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 48px;
 }
 
 .feedback-swiper {
@@ -36,7 +36,6 @@
   align-items: center;
   gap: 16px;
   width: 100%;
-  margin-top: 48px;
 }
 
 @media only screen and (max-width: 375px) {

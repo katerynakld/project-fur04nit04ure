@@ -73,9 +73,11 @@ export function createFurnitureGallery(data) {
       return `
             <li class="gallery-item">
                 <img class="gallery-img" src="${firstImg}" alt="${name}" />
+                <div class="furniture-info">
                 <h3 class="furniture-title">${name}</h3>
                 <div class="furniture-colors">${colorCircles}</div>
                 <p class="furniture-price">${price} грн</p>
+                </div>
                 <div class="wrapper">
                     <button class="details-btn" type="button" data-id="${_id}">Детальніше</button>
                 </div>
