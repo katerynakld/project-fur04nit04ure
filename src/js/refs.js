@@ -9,6 +9,6 @@ export const refs = {
   categoriesGallery: document.querySelector('.furniture-categories-list'),
   furnitureGallery: document.querySelector('.furniture-gallery'),
   showMoreBtn: document.querySelector('.show-more-button'),
-  loader: document.getElementById('loader'),
-
+  loader: document.getElementById('loader-modal'),
+  floader: document.querySelector('.floader'),
 };

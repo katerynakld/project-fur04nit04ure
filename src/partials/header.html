@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header-container">
       <a href="./index.html" class="logo" id="logo">
-        <img src="/img/svg/logo.svg" alt="Company-Logo" />
+        <img src="/img/svg/logo.svg" alt="Company logo" />
       </a>
 
       <nav class="nav">
@@ -16,7 +16,7 @@
       </nav>
 
       <div class="menu-toggle-buttons">
-        <button class="burger" id="burger">
+        <button class="burger" id="burger" aria-label="Open menu">
           <svg class="burger-icon">
             <use href="/img/svg/menu.svg"></use>
           </svg>
@@ -31,15 +31,19 @@
         <div class="mobile-menu-content">
           <nav class="mobile-nav">
             <ul class="mobile-navigation-list">
-              <li>
+              <li class="mobile-navigation-item">
                 <a href="#furniture" class="mobile-nav-link">Наші меблі</a>
               </li>
-              <li><a href="#about-us" class="mobile-nav-link">Про нас</a></li>
-              <li>
+              <li class="mobile-navigation-item">
+                <a href="#about-us" class="mobile-nav-link">Про нас</a>
+              </li>
+              <li class="mobile-navigation-item">
                 <a href="#faq-section" class="mobile-nav-link">Часті питання</a>
               </li>
-              <li><a href="#feedback" class="mobile-nav-link">Відгуки</a></li>
-              <li>
+              <li class="mobile-navigation-item">
+                <a href="#feedback" class="mobile-nav-link">Відгуки</a>
+              </li>
+              <li class="mobile-navigation-item">
                 <a href="#furniture" class="mobile-cta-button">До покупок</a>
               </li>
             </ul>

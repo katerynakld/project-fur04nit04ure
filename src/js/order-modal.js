@@ -76,7 +76,6 @@ export async function handleOrderSubmit(event, orderDetails) {
     return;
   } finally {
     refs.orderModalLoader.classList.add('visually-hidden');
-    console.log(orderInfo);
   }
 }
 
