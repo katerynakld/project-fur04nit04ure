@@ -55,8 +55,6 @@
   transform-origin: inherit !important;
 }
 
-
-
 html {
   scroll-behavior: smooth;
 }
@@ -114,5 +112,12 @@ body {
     font-size: 48px;
     line-height: 120%;
     letter-spacing: 0.01em;
+  }
+}
+
+@media(prefers-color-scheme: dark){
+  body {
+    color: #fff;
+    background-color: #333;
   }
 }

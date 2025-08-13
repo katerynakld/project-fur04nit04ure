@@ -5,18 +5,13 @@
 .feedback-name {
   width: 100%;
   height: 43px;
-  font-family: var(--font-family);
   font-weight: 700;
   font-size: 36px;
 }
 
 .feedback-p {
   margin-top: 24px;
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 16px;
   line-height: 160%;
-  color: var(--color-scheme-1-text);
 }
 
 .feedback-slider-wrapper {
@@ -64,6 +59,15 @@
 .swiper-pagination-bullet-active {
   opacity: 1;
   background: #000000 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .swiper-pagination-bullet {
+    background: #fff !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: #fff !important;
+  }
 }
 
 .feedback-nav-buttons {
@@ -132,6 +136,16 @@
   margin-bottom: 24px;
 }
 
+.star-rating svg {
+  fill: #080c09;
+}
+
+@media (prefers-color-scheme: dark) {
+  .star-rating svg {
+    fill: #fff;
+  }
+}
+
 .section-feedback .star {
   width: 20px;
   height: 20px;
@@ -149,7 +163,7 @@
   font-size: 16px;
   line-height: 160%;
   text-align: left;
-  color: var(--color-scheme-1-text);
+  /* color: var(--color-scheme-1-text); */
 }
 
 @media only screen and (min-width: 768px) {

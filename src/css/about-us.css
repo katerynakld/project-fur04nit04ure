@@ -42,3 +42,10 @@
 .about-img {
   border-radius: 8px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .about-title,
+  .about-text {
+    color: #080c09;
+  }
+}
