@@ -21,16 +21,13 @@
 
 .modal-field {
   background-color: #fff;
-  width: 336px;
+  width: 100%;
   padding: 64px 20px 44px;
   border-radius: 8px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   transition: transform 250ms cubic-bezier(0.77, 0, 0.18, 1);
   max-height: 90vh;
   overflow-y: auto;
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {

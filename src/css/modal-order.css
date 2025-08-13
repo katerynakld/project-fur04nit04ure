@@ -25,7 +25,7 @@
   background: var(--color-white);
   padding: 64px 20px;
   border-radius: 8px;
-  width: 335px;
+  width: 100%;
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
