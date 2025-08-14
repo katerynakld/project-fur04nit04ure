@@ -1,8 +1,5 @@
-/* ===============================================
-    HEADER
-   =============================================== */
 .header {
-  padding: 20px 0;
+  padding: 16px 0;
 }
 
 .header-container {
@@ -13,9 +10,6 @@
   justify-content: space-between;
 }
 
-/* ===============================================
-    LOGO
-   =============================================== */
 .logo {
   display: flex;
   justify-content: center;
@@ -25,11 +19,15 @@
 
 .logo-icon {
   display: block;
+  fill: #080c09
 }
 
-/* ===============================================
-    DESKTOP NAVIGATION
-   =============================================== */
+@media (prefers-color-scheme: dark) {
+  .logo-icon {
+    fill: #fff;
+  }
+}
+
 .nav {
   display: none;
 }
@@ -41,28 +39,35 @@
 }
 
 .nav-link {
-  color: #000000;
-  text-decoration: none;
-  font-size: 16px;
-  transition: 250ms cubic-bezier(0.77, 0, 0.18, 1);
-  cursor: pointer;
+  padding: 8px 0;
+  color: #080c09;
+  transition: opacity 250ms cubic-bezier(0.77, 0, 0.18, 1),
+    scale 250ms cubic-bezier(0.77, 0, 0.18, 1);
   position: relative;
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav-link {
+    color: #fff;
+  }
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #000000;
+  opacity: 0.5;
+  scale: 1.05;
 }
 
 .nav-link:hover::after,
 .nav-link:focus::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: 0;
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #8b1538;
+  background-color: #6b0609;
+  opacity: 0.5;
   animation: underlineSlide 0.3s ease forwards;
 }
 
@@ -81,31 +86,25 @@
     CTA BUTTON
    =============================================== */
 .cta-button {
-  background: #8b1538;
-  color: #ffffff;
+  background-color: #6b0609;
+  color: #fff;
   border: none;
-  border-radius: 30px;
+  border-radius: 100px;
   text-decoration: none;
-  font-size: 16px;
-  transition: all 250ms cubic-bezier(0.77, 0, 0.18, 1);
-  cursor: pointer;
-  box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
-    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+  transition: opacity 250ms cubic-bezier(0.77, 0, 0.18, 1);
+  box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15),
     inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
-    inset 0 32px 24px 0 var(--opacity-white-5);
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
   display: none;
   padding: 10px 20px;
 }
 
 .cta-button:hover,
 .cta-button:focus {
-  background: #b46b7a;
+  opacity: 0.5;
 }
 
-/* ===============================================
-    BURGER & CLOSE BUTTONS
-   =============================================== */
 .menu-toggle-buttons {
   position: relative;
   width: 40px;
@@ -136,24 +135,22 @@
 .close-icon {
   width: 32px;
   height: 32px;
-  fill: #333;
+  fill: #080c09;
+  transition: opacity 250ms cubic-bezier(0.77, 0, 0.18, 1);
 }
 
 .burger:hover .burger-icon,
 .close-menu:hover .close-icon {
-  fill: #555;
+  opacity: 0.5;
 }
 
-/* ===============================================
-    MOBILE MENU (DEFAULT – MOBILE FIRST)
-   =============================================== */
 .mobile-menu {
   position: fixed;
   top: -100%;
   left: 0;
   width: 100%;
   height: calc(100vh - 70px);
-  background: #ffffff;
+  background: #fff;
   transition: top 250ms cubic-bezier(0.77, 0, 0.18, 1);
   z-index: 999;
 }

@@ -42,7 +42,7 @@
   border-top: 1px solid var(--opacity-neutral-darkest-15) !important;
   margin-bottom: 0 !important;
   margin-bottom: 8px;
-  background-color: var(--color-white);
+  background-color: inherit;
   box-sizing: border-box;
 }
 
@@ -77,6 +77,7 @@
   border: 0;
 }
 
+.ac-trigger:hover,
 .ac-trigger:focus {
   color: var(--color-neutral-dark);
 }
@@ -84,6 +85,22 @@
 .ac-trigger .ac-trigger-icon {
   transition: transform 250ms cubic-bezier(0.77, 0, 0.18, 1);
 }
+
+@media (prefers-color-scheme: dark) {
+  .ac-trigger .ac-trigger-icon {
+    fill: #fff;
+  }
+  .ac-trigger {
+    color: #fff !important;
+    transition: opacity 250ms cubic-bezier(0.77, 0, 0.18, 1);
+  }
+
+  .ac-trigger:hover,
+  .ac-trigger:focus {
+    opacity: 0.5 !important;
+  }
+}
+
 .ac.is-active .ac-trigger .ac-trigger-icon {
   transform: rotate(-180deg);
 }
