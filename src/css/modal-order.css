@@ -140,7 +140,7 @@
 .input-wrapper:has(.order-form-input:user-invalid:not(:placeholder-shown))
   .invalid-feedback {
   display: block;
-  color: var(--color-madang-dark);
+  color: var(--color-madang-lighter);
 }
 
 .submit-btn:hover {
