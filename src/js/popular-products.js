@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const swiperWrapper = document.querySelector(
       '.products-swiper .swiper-wrapper'
     );
+
     if (!swiperWrapper) {
       console.error('Контейнер .products-swiper .swiper-wrapper не знайдено.');
       return;
@@ -75,8 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
           : '';
 
         return `
-          <div class="swiper-slide">
-            <div class="product-card">
+          <li class="swiper-slide product-card">
+            
               <img src="${imageSrc}" alt="${name}" class="product-image">
               <div class="furniture-info">
               <h3 class="furniture-title">${name}</h3>
@@ -84,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <p class="product-price">${price} грн</p>
               </div>
               <button class="details-btn" data-id="${id}">Детальніше</button>
-            </div>
-          </div>
+          
+          </li>
         `;
       })
       .join('');
