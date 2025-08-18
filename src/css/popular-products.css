@@ -1,6 +1,5 @@
 .section-products {
   padding: 80px 0;
-  background-color: #f7f5f2;
 }
 
 .products-title {
@@ -22,10 +21,8 @@
 /* ====== Product Card ====== */
 .product-card {
   width: 100%;
-  max-width: 320px; /* Max width for a single card */
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
   background-color: #ffffff;

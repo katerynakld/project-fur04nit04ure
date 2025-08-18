@@ -78,9 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="swiper-slide">
             <div class="product-card">
               <img src="${imageSrc}" alt="${name}" class="product-image">
-              <h3 class="product-name">${name}</h3>
+              <div class="furniture-info">
+              <h3 class="furniture-title">${name}</h3>
               <div class="product-colors">${colorsHtml}</div>
               <p class="product-price">${price} грн</p>
+              </div>
               <button class="details-btn" data-id="${id}">Детальніше</button>
             </div>
           </div>
