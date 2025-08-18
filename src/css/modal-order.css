@@ -25,7 +25,7 @@
   background: var(--color-white);
   padding: 64px 20px;
   border-radius: 8px;
-  width: 335px;
+  width: 100%;
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
@@ -37,13 +37,24 @@
   right: 16px;
   background: transparent;
   border: none;
-  cursor: pointer;
-  transition: fill 250ms cubic-bezier(0.77, 0, 0.18, 1);
+  transition: opacity 250ms cubic-bezier(0.77, 0, 0.18, 1);
 }
 
 .modal-close:hover,
 .modal-close:focus {
-  fill: var(--opacity-neutral-darkest-50);
+  opacity: 0.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  .order-modal-overlay {
+    background-color: var(--opacity-white-30);
+  }
+  .order-modal {
+    background-color: #333;
+  }
+  .order-icon {
+    fill: #fff;
+  }
 }
 
 .order-modal .secondary-heading {
@@ -57,15 +68,7 @@
   gap: 24px;
 }
 
-.order-form-label {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 160%;
-  color: var(--color-neutral-darkest);
-}
-
-.order-form-input {
+.order-form-input:required {
   margin-top: 8px;
   width: 100%;
   padding: 8px 12px;
@@ -88,13 +91,27 @@
   outline: none;
 }
 
-.order-form-input.error-state {
-  border-color: var(--color-madang);
-  color: var(--color-madang);
+.order-form-input:user-invalid {
+  border-color: var(--color-madang-dark);
 }
 
 .order-form-input::placeholder {
   color: var(--opacity-neutral-darkest-60);
+}
+
+@media (prefers-color-scheme: dark) {
+  .order-form-input:required {
+    background-color: var(--color-neutral-light);
+  }
+  .order-form-input:hover,
+  .order-form-input:focus,
+  .order-form-input:focus-within {
+    border-color: var(--color-neutral-lightest);
+    outline: none;
+  }
+  .order-form-input::placeholder {
+    color: var(--color-neutral-darker);
+  }
 }
 
 .submit-btn {
@@ -111,11 +128,31 @@
   transition: all 250ms cubic-bezier(0.77, 0, 0.18, 1);
 }
 
+.invalid-feedback {
+  display: none;
+  margin-top: 4px;
+}
+
+.invalid-feedback .body-text {
+  font-size: 14px;
+}
+
+.input-wrapper:has(.order-form-input:user-invalid:not(:placeholder-shown))
+  .invalid-feedback {
+  display: block;
+  color: var(--color-madang-lighter);
+}
+
 .submit-btn:hover {
   background-color: var(--color-madang-light);
 }
 
-.loader {
+.submit-btn:disabled {
+  background-color: var(--color-madang-lighter);
+  cursor: auto;
+}
+
+.loader-modal {
   position: absolute;
   top: 50%;
   left: 50%;

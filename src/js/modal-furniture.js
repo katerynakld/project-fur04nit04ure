@@ -1,8 +1,8 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-import { generateStars } from './helpers';
-import { openOrderModal, productsData } from './handlers';
+import { generateStars, openOrderModal } from './helpers.js';
+import { productsData } from './handlers.js';
 
 document.addEventListener('click', event => {
   const btn = event.target.closest('.details-btn');
@@ -65,6 +65,7 @@ function fillModal(product) {
   modal.classList.add('is-open');
   // document.body.classList.add('modal-open');
   document.body.style.overflow = 'hidden';
+  
 
   initColorCheckboxes();
 

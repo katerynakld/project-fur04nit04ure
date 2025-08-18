@@ -1,39 +1,51 @@
 .about-section {
-    background: #f0e6e6;
-    padding-top: 64px;
-    padding-bottom: 64px;
+  background: #f0e6e6;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.about-text-wrapper {
+  margin-bottom: 24px;
 }
 
 @media only screen and (min-width: 768px) {
-    .about-section {
-        padding-top: 32px;
-        padding-bottom: 32px;
-    }
+  .about-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .about-text-wrapper {
+    margin-bottom: 24px;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
-    .about-section {
-        padding-top: 64px;
-        padding-bottom: 64px;
-    }
-    .about-container {
-        display: flex;
-        gap: 24px;
-        align-items: center;
-    }
-    .about-text-wrapper {
-        width: 647px;
-    }
+  .about-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .about-container {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  .about-text-wrapper {
+    width: 647px;
+    margin-bottom: 0;
+  }
 }
 
-.about-title{
-    margin-bottom: 24px;
-}
-
-.about-text {
-    padding-bottom: 24px;
+.about-title {
+  margin-bottom: 24px;
 }
 
 .about-img {
-    border-radius: 8px;
+  border-radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .about-title,
+  .about-text {
+    color: #080c09;
+  }
 }
