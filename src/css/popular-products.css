@@ -10,14 +10,14 @@
 .products-slider-wrapper {
   position: relative;
 }
-.swiper {
+.section-products .swiper {
   padding: 10px !important;
 }
-.swiper-wrapper {
+.section-products .swiper-wrapper {
   gap: 20px;
 }
 
-.swiper-slide {
+.section-products .swiper-slide {
   height: auto !important;
   display: flex !important;
   flex-direction: column;
@@ -31,7 +31,7 @@
   background-color: #ffffff;
 }
 
-.swiper-slide:hover {
+.section-products .swiper-slide:hover {
   transform: translateY(-5px) scale(1.02) !important;
 }
 
