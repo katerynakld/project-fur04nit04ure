@@ -86,19 +86,17 @@
   transition: transform 250ms cubic-bezier(0.77, 0, 0.18, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  .ac-trigger .ac-trigger-icon {
-    fill: #fff;
-  }
-  .ac-trigger {
-    color: #fff !important;
-    transition: opacity 250ms cubic-bezier(0.77, 0, 0.18, 1);
-  }
+html.dark .ac-trigger .ac-trigger-icon {
+  fill: #fff;
+}
+html.dark .ac-trigger {
+  color: #fff !important;
+  transition: opacity 250ms cubic-bezier(0.77, 0, 0.18, 1);
+}
 
-  .ac-trigger:hover,
-  .ac-trigger:focus {
-    opacity: 0.5 !important;
-  }
+html.dark .ac-trigger:hover,
+html.dark .ac-trigger:focus {
+  opacity: 0.5 !important;
 }
 
 .ac.is-active .ac-trigger .ac-trigger-icon {

@@ -1,3 +1,23 @@
-.page-theme {
+.change-theme-btn {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   position: fixed;
+  right: 0px;
+  top: 86px;
+  border: none;
+  background-color: var(--color-madang);
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+  line-height: 0;
+}
+
+html.dark .change-theme-btn{
+  background: url("../img/svg/light-mode.svg") no-repeat center/100%;
+}
+
+html.light .change-theme-btn{
+  background: url("../img/svg/dark-mode.svg") no-repeat center/100%;
 }

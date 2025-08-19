@@ -61,14 +61,13 @@
   background: #000000 !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  .swiper-pagination-bullet {
+html.dark .swiper-pagination-bullet {
     background: #fff !important;
   }
-  .swiper-pagination-bullet-active {
+html.dark .swiper-pagination-bullet-active {
     background: #fff !important;
   }
-}
+
 
 .feedback-nav-buttons {
   display: flex;
@@ -140,11 +139,9 @@
   fill: #080c09;
 }
 
-@media (prefers-color-scheme: dark) {
-  .star-rating svg {
+html.dark .star-rating svg {
     fill: #fff;
   }
-}
 
 .section-feedback .star {
   width: 20px;

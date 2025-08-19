@@ -45,16 +45,14 @@
   opacity: 0.5;
 }
 
-@media (prefers-color-scheme: dark) {
-  .order-modal-overlay {
-    background-color: var(--opacity-white-30);
-  }
-  .order-modal {
-    background-color: #333;
-  }
-  .order-icon {
-    fill: #fff;
-  }
+html.dark .order-modal-overlay {
+  background-color: var(--opacity-white-30);
+}
+html.dark .order-modal {
+  background-color: #121212;
+}
+html.dark .order-icon {
+  fill: #fff;
 }
 
 .order-modal .secondary-heading {
@@ -99,19 +97,17 @@
   color: var(--opacity-neutral-darkest-60);
 }
 
-@media (prefers-color-scheme: dark) {
-  .order-form-input:required {
-    background-color: var(--color-neutral-light);
-  }
-  .order-form-input:hover,
-  .order-form-input:focus,
-  .order-form-input:focus-within {
-    border-color: var(--color-neutral-lightest);
-    outline: none;
-  }
-  .order-form-input::placeholder {
-    color: var(--color-neutral-darker);
-  }
+html.dark .order-form-input:required {
+  background-color: var(--color-neutral-light);
+}
+html.dark .order-form-input:hover,
+html.dark .order-form-input:focus,
+html.dark .order-form-input:focus-within {
+  border-color: var(--color-neutral-lightest);
+  outline: none;
+}
+html.dark .order-form-input::placeholder {
+  color: var(--color-neutral-darker);
 }
 
 .submit-btn {

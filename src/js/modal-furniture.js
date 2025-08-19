@@ -4,13 +4,21 @@ import 'izitoast/dist/css/iziToast.min.css';
 import { generateStars, openOrderModal } from './helpers.js';
 import { productsData } from './handlers.js';
 
+// -----------------------DOM-elements-------------------------
+const modal = document.querySelector('[data-modal]');
+const closeButton = modal.querySelector('[data-modal-close]');
+const galleryBox = modal.querySelector('.gallery-details');
+const orderButton = modal.querySelector('.modal-order-btn');
+
+// -----------------------DOM-elements-------------------------
+
 document.addEventListener('click', event => {
   const btn = event.target.closest('.details-btn');
   if (!btn) return;
 
   const id = btn.dataset.id;
 
-  const product = productsData.find(p => p._id === id);
+  const product = productsData.find(prod => prod._id === id);
   if (product) fillModal(product);
 });
 
@@ -22,8 +30,6 @@ export let orderData = {
 function fillModal(product) {
   orderData.id = product._id;
 
-  const modal = document.querySelector('[data-modal]');
-
   const galleryHTML = product.images
     .map(
       (src, i) => `
@@ -33,7 +39,9 @@ function fillModal(product) {
   `
     )
     .join('');
-  modal.querySelector('.gallery-details').innerHTML = galleryHTML;
+  galleryBox.innerHTML = galleryHTML;
+
+  galleryBox.addEventListener('click', showLargeImg);
 
   modal.querySelector('.details-title').textContent = product.name;
   modal.querySelector('.details-category').textContent = product.category.name;
@@ -65,15 +73,12 @@ function fillModal(product) {
   modal.classList.add('is-open');
   // document.body.classList.add('modal-open');
   document.body.style.overflow = 'hidden';
-  
 
   initColorCheckboxes();
 
   document.addEventListener('keydown', handleEscClose);
   modal.addEventListener('click', handleOverlayClose);
-  modal
-    .querySelector('[data-modal-close]')
-    .addEventListener('click', closeModal);
+  closeButton.addEventListener('click', closeModal);
 }
 
 function initColorCheckboxes() {
@@ -92,31 +97,28 @@ function initColorCheckboxes() {
   });
 }
 
-document
-  .querySelector('.modal-order-btn')
-  .addEventListener('click', function (e) {
-    e.preventDefault();
+orderButton.addEventListener('click', function (event) {
+  event.preventDefault();
 
-    const checkedBox = document.querySelector('.color-checkbox:checked');
+  const checkedBox = document.querySelector('.color-checkbox:checked');
 
-    if (!checkedBox) {
-      iziToast.warning({
-        title: 'Увага',
-        message: `Оберіть, будь ласка, колір`,
-        position: 'center',
-        timeout: 2000,
-      });
-      return;
-    }
-    orderData.color = checkedBox.value;
+  if (!checkedBox) {
+    iziToast.warning({
+      title: 'Увага',
+      message: `Оберіть, будь ласка, колір`,
+      position: 'center',
+      timeout: 2000,
+    });
+    return;
+  }
+  orderData.color = checkedBox.value;
 
-    closeModal();
+  closeModal();
 
-    openOrderModal();
-  });
+  openOrderModal();
+});
 
 function closeModal() {
-  const modal = document.querySelector('[data-modal]');
   modal.classList.remove('is-open');
 
   // document.body.classList.remove('modal-open');
@@ -124,13 +126,11 @@ function closeModal() {
 
   document.removeEventListener('keydown', handleEscClose);
   modal.removeEventListener('click', handleOverlayClose);
-  modal
-    .querySelector('[data-modal-close]')
-    .removeEventListener('click', closeModal);
+  closeButton.removeEventListener('click', closeModal);
 }
 
-function handleOverlayClose(e) {
-  if (e.target.hasAttribute('data-modal')) {
+function handleOverlayClose(event) {
+  if (event.target.hasAttribute('data-modal')) {
     closeModal();
   }
 }
@@ -139,4 +139,18 @@ function handleEscClose(event) {
   if (event.key === 'Escape') {
     closeModal();
   }
+}
+
+// -----------------------change-gallery-image------------------------------
+function showLargeImg(event) {
+  if (!event.target.classList.contains('gallery-images')) return;
+
+  const largeImage = document.querySelector('.large .gallery-images');
+  const clickedImage = event.target;
+
+  if (clickedImage === largeImage) return;
+
+  const temp = largeImage.src;
+  largeImage.src = clickedImage.src;
+  clickedImage.src = temp;
 }
