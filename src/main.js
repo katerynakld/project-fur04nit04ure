@@ -9,7 +9,10 @@ import {
 import { CATEGORIES_END_POINT, FURNITURES_END_POINT } from './js/constants';
 import { refs } from './js/refs';
 
+
+
 document.addEventListener('DOMContentLoaded', hidefLoader);
+
 
 getDataByQuery(CATEGORIES_END_POINT, { page: 1, limit: 100 })
   .then(data => {

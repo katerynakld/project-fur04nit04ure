@@ -101,6 +101,12 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
+  transition: transform 350ms cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.gallery-item:hover,
+.gallery-item:focus {
+  transform: translateY(-5px) scale(1.02);
 }
 
 .gallery-img {
@@ -131,7 +137,6 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 160%;
-  margin-top: 16px;
 }
 
 .furniture-price {
