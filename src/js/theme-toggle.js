@@ -33,7 +33,7 @@ function windowLoad(){
       localStorage.setItem(storageKey, newTheme);
       savedTheme = newTheme;
     }
-
+    themeBtn.blur();
     applyTheme();
   });
 

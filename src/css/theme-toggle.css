@@ -4,8 +4,8 @@
   height: 40px;
   border-radius: 50%;
   position: fixed;
-  right: 0px;
-  top: 86px;
+  right: 10px;
+  bottom: 104px;
   border: none;
   background-color: var(--color-madang);
   padding: 0;
@@ -14,10 +14,32 @@
   line-height: 0;
 }
 
-html.dark .change-theme-btn{
-  background: url("../img/svg/light-mode.svg") no-repeat center/100%;
+.change-theme-btn:hover,
+.change-theme-btn:focus {
+  background-color: var(--color-madang-light);
 }
 
-html.light .change-theme-btn{
-  background: url("../img/svg/dark-mode.svg") no-repeat center/100%;
+html.light .change-theme-btn {
+  background-color: transparent;
+}
+
+html.dark .icon-light {
+  fill: #fff;
+}
+
+html.light .icon-light {
+  display: none;
+}
+
+html.light .icon-dark {
+  fill: #6b0609;
+}
+
+html.light .change-theme-btn:hover .icon-dark,
+html.light .change-theme-btn:focus .icon-dark {
+  fill: var(--color-madang-light);
+}
+
+html.dark .icon-dark {
+  display: none;
 }
