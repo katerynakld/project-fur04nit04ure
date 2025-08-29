@@ -11,7 +11,6 @@
 
 .feedback-p {
   margin-top: 24px;
-  line-height: 160%;
 }
 
 .feedback-slider-wrapper {
@@ -45,20 +44,21 @@
 
 .feedback-pagination {
   display: flex;
-  align-items: left;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
-  background: #000000;
+  background: #080c09;
   opacity: 0.5;
   border-radius: 50%;
 }
 
 .swiper-pagination-bullet-active {
   opacity: 1;
-  background: #000000 !important;
+  background: #080c09 !important;
 }
 
 html.dark .swiper-pagination-bullet {
@@ -111,12 +111,12 @@ html.dark .swiper-pagination-bullet-active {
 
 .btn-left {
   transform: rotate(-90deg);
-  fill: #000000;
+  fill: #080c09;
 }
 
 .btn-right {
   transform: rotate(90deg);
-  fill: #000000;
+  fill: #080c09;
 }
 
 .nav-btn.disabled {

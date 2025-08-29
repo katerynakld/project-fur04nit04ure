@@ -7,14 +7,51 @@ import {
   handleOverlayClose,
 } from './order-modal.js';
 import { refs } from './refs.js';
+import { fillSuccessModal } from './modal-success.js';
 
 export function openOrderModal() {
   refs.orderModalBackdrop.classList.add('is-open');
   document.body.style.overflow = 'hidden';
+  refs.orderModalLoader.classList.add('visually-hidden');
+  refs.orderFormEl.reset();
 
   refs.orderModalCloseBtn.addEventListener('click', closeOrderModal);
   refs.orderModalBackdrop.addEventListener('click', handleOverlayClose);
   document.addEventListener('keydown', handleEscClose);
+}
+
+export function openSuccessModal() {
+  fillSuccessModal();
+  refs.successModalBackdrop.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+
+  refs.successModalCloseBtn.addEventListener('click', closeSuccessModal);
+  refs.successModalBackdrop.addEventListener('click', handleSuccessOverlayClose);
+  document.addEventListener('keydown', handleSuccessEscClose);
+}
+
+export function closeSuccessModal() {
+  refs.successModalBackdrop.classList.remove('is-open');
+  document.body.style.overflow = '';
+
+  refs.successModalCloseBtn.removeEventListener('click', closeSuccessModal);
+  refs.successModalBackdrop.removeEventListener(
+    'click',
+    handleSuccessOverlayClose
+  );
+  document.removeEventListener('keydown', handleSuccessEscClose);
+}
+
+function handleSuccessOverlayClose(e) {
+  if (e.target.hasAttribute('data-modal')) {
+    closeSuccessModal();
+  }
+}
+
+function handleSuccessEscClose(e) {
+  if (e.key === 'Escape') {
+    closeSuccessModal();
+  }
 }
 
 function roundRating(rating) {

@@ -8,7 +8,7 @@ import {
 } from './js/handlers';
 import { CATEGORIES_END_POINT, FURNITURES_END_POINT } from './js/constants';
 import { refs } from './js/refs';
-
+import { fetchPopularFurniture } from './js/popular-products.js';
 
 
 document.addEventListener('DOMContentLoaded', hidefLoader);
@@ -28,3 +28,8 @@ initFurnitureGallery().catch(error => {
 });
 
 refs.showMoreBtn.addEventListener('click', loadMoreHandler);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetchPopularFurniture();
+});

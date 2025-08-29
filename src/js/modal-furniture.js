@@ -2,7 +2,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 import { generateStars, openOrderModal } from './helpers.js';
-import { productsData } from './handlers.js';
+import { allProductsData } from './popular-products.js';
 
 // -----------------------DOM-elements-------------------------
 const modal = document.querySelector('[data-modal]');
@@ -18,17 +18,19 @@ document.addEventListener('click', event => {
 
   const id = btn.dataset.id;
 
-  const product = productsData.find(prod => prod._id === id);
+  const product = allProductsData.find(prod => prod._id === id);
   if (product) fillModal(product);
 });
 
 export let orderData = {
   id: '',
   color: '',
+  name: '',
 };
 
 function fillModal(product) {
   orderData.id = product._id;
+  orderData.name = product.name;
 
   const galleryHTML = product.images
     .map(

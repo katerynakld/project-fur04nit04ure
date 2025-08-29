@@ -5,7 +5,7 @@
 }
 
 html.dark .about-section {
-  background-color: var(--color-madang-dark);
+  background-color: var(--color-madang-light);
 }
 
 .about-text-wrapper {
