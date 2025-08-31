@@ -17,10 +17,12 @@ document.addEventListener('click', event => {
   if (!btn) return;
 
   const id = btn.dataset.id;
+console.log(allProductsData);
 
   const product = allProductsData.find(prod => prod._id === id);
   if (product) fillModal(product);
 });
+
 
 export let orderData = {
   id: '',

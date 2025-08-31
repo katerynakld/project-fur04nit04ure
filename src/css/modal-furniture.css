@@ -14,7 +14,7 @@
 }
 
 html.dark .modal-overlay {
-  background-color: var(--opacity-white-30);
+  background-color: var(--opacity-white-10);
 }
 
 .modal-overlay.is-open {

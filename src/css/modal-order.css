@@ -16,7 +16,7 @@
 }
 
 html.dark .order-modal-overlay {
-  background-color: var(--opacity-white-30);
+  background-color: var(--opacity-white-10);
 }
 
 .order-modal-overlay.is-open {
@@ -52,6 +52,7 @@ html.dark .order-modal-overlay {
 html.dark .order-modal {
   background-color: var(--color-theme-dark);
 }
+
 html.dark .order-icon {
   fill: var(--color-white);
 }

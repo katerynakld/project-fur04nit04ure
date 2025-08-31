@@ -9,7 +9,7 @@ import { productsData } from './handlers';
 let swiperInstance = null;
 export let allProductsData = productsData;
 
-console.log(allProductsData);
+console.log('allProductsData', allProductsData);
 export async function fetchPopularFurniture() {
   try {
     const endpoint = '/furnitures';

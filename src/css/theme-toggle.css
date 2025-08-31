@@ -4,7 +4,9 @@
   height: 40px;
   border-radius: 50%;
   position: fixed;
-  right: 10px;
+  left: 50%;
+  transform: translateX(calc(160px - 100% - 72px));
+
   bottom: 104px;
   border: none;
   background-color: var(--color-madang);
@@ -13,6 +15,15 @@
   font-size: 0;
   line-height: 0;
 }
+
+@media screen and (min-width: 768px) {
+  .change-theme-btn {
+    transform: none;
+    left: auto;
+    right: 10px;
+  }
+}
+
 
 .change-theme-btn:hover,
 .change-theme-btn:focus {

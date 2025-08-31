@@ -4,13 +4,22 @@
   height: 40px;
   border-radius: 50%;
   position: fixed;
-  right: 10px;
+  left: 50%;
+  transform: translateX(calc(160px - 100% - 72px));
   bottom: 156px;
   border: none;
   background-color: var(--color-madang);
   align-items: center;
   justify-content: center;
   transition: background-color 250ms cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .scroll-up {
+    transform: none;
+    left: auto;
+    right: 10px;
+  }
 }
 
 .scroll-up:hover,
