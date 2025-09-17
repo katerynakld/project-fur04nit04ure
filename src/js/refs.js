@@ -11,4 +11,6 @@ export const refs = {
   showMoreBtn: document.querySelector('.show-more-button'),
   loader: document.getElementById('loader-modal'),
   floader: document.querySelector('.floader'),
+  successModalBackdrop: document.querySelector('.success-modal-overlay'),
+  successModalCloseBtn: document.querySelector('.success-modal-close'),
 };

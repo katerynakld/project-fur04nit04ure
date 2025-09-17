@@ -43,7 +43,7 @@ export function createCategoriesGallery(data) {
         `background-image: image-set(url('./img/${file1x}') 1x, url('./img/${file2x}') 2x);`.trim();
 
       return `
-            <li class="category-item">   
+            <li class="category-item">
                 <div class="category-thumb" data-category-id="${_id}" style="${style}" >
                 <p class="category-title">${name}</p>
                 </div>
@@ -180,7 +180,7 @@ async function reloadFirstPage() {
     const data = await getDataByQuery(FURNITURES_END_POINT, bildParams(page));
     refs.furnitureGallery.innerHTML = createFurnitureGallery(data.furnitures);
 
-    productsData.length = 0;
+    // productsData.length = 0;
     productsData.push(...data.furnitures);
 
     totalPages =

@@ -4,6 +4,7 @@ import { refs } from './refs.js';
 import { postOrder } from './order-api.js';
 import { orderData } from './modal-furniture.js';
 import IMask from 'imask';
+import { openSuccessModal } from './helpers.js';
 
 const phoneInput = document.getElementById('phone-input');
 const maskOptions = {
@@ -12,18 +13,16 @@ const maskOptions = {
 
 const mask = IMask(phoneInput, maskOptions);
 
-let orderDetails = orderData;
-
 const submitBtn = document.querySelector('.submit-btn');
 refs.orderFormEl.addEventListener('input', () => {
   submitBtn.disabled = !refs.orderFormEl.checkValidity();
 });
 
 refs.orderFormEl.addEventListener('submit', event =>
-  handleOrderSubmit(event, orderDetails)
+  handleOrderSubmit(event, orderData)
 );
 
-export async function handleOrderSubmit(event, orderDetails) {
+export async function handleOrderSubmit(event, orderData) {
   event.preventDefault();
   refs.orderModalLoader.classList.remove('visually-hidden');
   refs.orderFormEl.classList.add('was-validated');
@@ -45,15 +44,17 @@ export async function handleOrderSubmit(event, orderDetails) {
     document
       .querySelector('.order-form-input[name="phone"]')
       .classList.add('is-invalid');
+    return;
   }
 
-  const { id, color } = orderData;
+  const { id, color, name } = orderData;
 
   const orderInfo = {
-    email: refs.orderFormEl.email.value.trim(),
-    phone: refs.orderFormEl.phone.value.trim().replace(/\D/g, ''),
+    // email: refs.orderFormEl.email.value.trim(),
+    phone: mask.unmaskedValue,
     modelId: id,
-    color: color,
+    color,
+    name,
     comment: refs.orderFormEl.comment.value.trim(),
   };
 
@@ -61,19 +62,14 @@ export async function handleOrderSubmit(event, orderDetails) {
     const data = await postOrder(orderInfo);
 
     if (data) {
-      iziToast.success({
-        message: 'Заявку успішно надіслано!',
-        position: 'topRight',
-      });
-
       closeOrderModal();
+      openSuccessModal();
     }
   } catch (error) {
     iziToast.error({
       message: 'Сталася помилка, спробуйте ще раз',
       position: 'topRight',
     });
-    return;
   } finally {
     refs.orderModalLoader.classList.add('visually-hidden');
   }

@@ -11,7 +11,6 @@
 
 .feedback-p {
   margin-top: 24px;
-  line-height: 160%;
 }
 
 .feedback-slider-wrapper {
@@ -45,30 +44,30 @@
 
 .feedback-pagination {
   display: flex;
-  align-items: left;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
-  background: #000000;
+  background: #080c09;
   opacity: 0.5;
   border-radius: 50%;
 }
 
 .swiper-pagination-bullet-active {
   opacity: 1;
-  background: #000000 !important;
+  background: #080c09 !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  .swiper-pagination-bullet {
+html.dark .swiper-pagination-bullet {
     background: #fff !important;
   }
-  .swiper-pagination-bullet-active {
+html.dark .swiper-pagination-bullet-active {
     background: #fff !important;
   }
-}
+
 
 .feedback-nav-buttons {
   display: flex;
@@ -112,12 +111,12 @@
 
 .btn-left {
   transform: rotate(-90deg);
-  fill: #000000;
+  fill: #080c09;
 }
 
 .btn-right {
   transform: rotate(90deg);
-  fill: #000000;
+  fill: #080c09;
 }
 
 .nav-btn.disabled {
@@ -140,11 +139,9 @@
   fill: #080c09;
 }
 
-@media (prefers-color-scheme: dark) {
-  .star-rating svg {
+html.dark .star-rating svg {
     fill: #fff;
   }
-}
 
 .section-feedback .star {
   width: 20px;

@@ -43,6 +43,7 @@
   --color-madang-dark: #550407;
   --color-madang-darker: #2a0203;
   --color-madang-darkest: #200102;
+  --color-theme-dark: #121212;
   --color-scheme-2-text: var(--color-neutral-darkest);
   --color-scheme-2-background: var(--color-madang-lightest);
   --color-scheme-2-border: var(--opacity-neutral-darkest-15);
@@ -57,6 +58,12 @@
 
 html {
   scroll-behavior: smooth;
+  transition: background-color 250ms cubic-bezier(0.77,0,0.18,1), color 250ms cubic-bezier(0.77,0,0.18,1);
+}
+
+html.dark body{
+  background-color: #121212;
+  color: #e0e0e0;
 }
 
 body {
@@ -115,9 +122,7 @@ body {
   }
 }
 
-@media(prefers-color-scheme: dark){
-  body {
-    color: #fff;
-    background-color: #333;
-  }
+html.dark body{
+  background-color: #121212;
+  color: #e0e0e0;
 }

@@ -5,19 +5,15 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const BASE_URL = 'https://furniture-store.b.goit.study/api';
 
+
+
 export async function postOrder(orderInfo) {
   try {
     const response = await axios.post(`${BASE_URL}/orders`, orderInfo, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
     });
-
     return response.data;
   } catch (error) {
-    iziToast.error({
-      message: 'Сталася помилка, спробуйте ще раз',
-      position: 'topRight',
-    });
+    throw error;
   }
 }

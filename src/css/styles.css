@@ -16,5 +16,8 @@
 @import url('./modal-furniture.css');
 @import url('./modal-order.css');
 @import url('./popular-products.css');
+@import url('./theme-toggle.css');
+@import url('./scroll-up.css');
+@import url('./modal-success.css');
 
 @import url('./footer.css');

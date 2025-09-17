@@ -69,14 +69,14 @@
 
 .footer-social-icon {
   fill: #fff;
-  transition: fill 250ms cubic-bezier(0.77, 0, 0.18, 1),
+  transition: opacity 250ms cubic-bezier(0.77, 0, 0.18, 1),
     transform 250ms cubic-bezier(0.77, 0, 0.18, 1);
 }
 
 .footer-social-link:hover svg,
 .footer-social-link:focus svg,
 .footer-social-link:active svg {
-  fill: #080c09;
+  opacity: 0.5;
   transform: scale(1.05);
 }
 

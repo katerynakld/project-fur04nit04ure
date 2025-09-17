@@ -1,7 +1,11 @@
 .about-section {
-  background: #f0e6e6;
+  background-color: var(--color-madang-lightest);
   padding-top: 64px;
   padding-bottom: 64px;
+}
+
+html.dark .about-section {
+  background-color: var(--color-madang-light);
 }
 
 .about-text-wrapper {
@@ -43,9 +47,7 @@
   border-radius: 8px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .about-title,
-  .about-text {
-    color: #080c09;
-  }
+html.dark .about-title,
+html.dark .about-text {
+  color: var(--color-madang-lightest);
 }
