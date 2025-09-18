@@ -11,10 +11,9 @@
 }
 
 .logo {
-  width: 163px;
-  height: 70px;
-  display: block;
-  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo-icon {
@@ -46,7 +45,28 @@ html.dark .logo-icon {
   padding: 8px 0;
   color: #080c09;
   position: relative;
-  font-weight: 600;
+  transition: transform 250ms cubic-bezier(0.77, 0, 0.18, 1),
+    opacity 250ms cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+html.dark .nav-link {
+  color: #fff;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-madang);
+  transition: width 250ms cubic-bezier(0.77, 0, 0.18, 1),
+    left 250ms cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+html.dark .nav-link::after {
+  background-color: var(--color-madang-lighter);
 }
 
 .nav-link:hover,
