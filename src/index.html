@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="Mebleria Home Page" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/img/svg/favicon.svg" />
     <title>Mebleria</title>
     <link
       rel="stylesheet"
@@ -11,6 +13,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
 
@@ -18,20 +21,28 @@
     <load src="/partials/header.html" />
 
     <main>
-      <load src="/partials/hero.html" />
-      <load src="/partials/furniture.html" />
-      <load src="/partials/about-us.html" />
-      <load src="/partials/faq.html" />
-      <load src="/partials/feedback.html" />
-      <load src="/partials/modal-furniture.html" />
-      <load src="/partials/modal-order.html" />
+      <load src="./partials/hero.html" />
+      <load src="./partials/furniture.html" />
+      <load src="./partials/about-us.html" />
+      <load src="./partials/popular-products.html" />
+      <load src="./partials/faq.html" />
+      <load src="./partials/feedback.html" />
+      <load src="./partials/modal-furniture.html" />
+      <load src="./partials/modal-order.html" />
+      <load src="./partials/modal-success.html" />
+      <load src="./partials/theme-toggle.html" />
+      <load src="./partials/scroll-up.html" />
     </main>
 
     <load src="/partials/footer.html" />
 
     <script type="module" src="/main.js"></script>
-
     <script type="module" src="/js/header-menu.js"></script>
+    <script type="module" src="/js/feedback.js"></script>
     <script type="module" src="/js/accordion.js"></script>
+    <script type="module" src="/js/order-modal.js"></script>
+    <script type="module" src="/js/modal-furniture.js"></script>
+    <script type="module" src="/js/popular-products.js"></script>
+
   </body>
 </html>

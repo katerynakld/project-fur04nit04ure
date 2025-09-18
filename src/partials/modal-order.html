@@ -1,0 +1,67 @@
+<div class="order-modal-overlay" data-modal>
+  <div class="order-modal modal-window">
+    <button class="modal-close" aria-label="Закрити">
+      <svg class="order-icon" width="32" height="32">
+        <use href="/img/svg/icon.svg#close"></use>
+      </svg>
+    </button>
+    <h2 class="secondary-heading">Замовити зворотний зв’язок</h2>
+    <form id="orderForm" class="order-form">
+      <div class="input-wrapper">
+        <label class="order-form-label">
+          Email*
+          <input
+            type="email"
+            name="email"
+            class="order-form-input form-control"
+            placeholder="your_email@gmail.com"
+            autocomplete="off"
+            required
+          />
+        </label>
+        <div class="invalid-feedback">
+          <p class="body-text">Будь ласка, введіть правильний email.</p>
+        </div>
+      </div>
+
+      <div class="input-wrapper">
+        <label class="order-form-label">
+          Телефон*
+          <input
+            type="text"
+            name="phone"
+            id="phone-input"
+            class="order-form-input form-control"
+            placeholder="+38 (099) 123 22 11"
+            required
+            pattern="^\+?[0-9\s\-\(\)]{7,}$"
+          />
+        </label>
+        <div class="invalid-feedback">
+          <p class="body-text">Будь ласка, введіть правильний телефон.</p>
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <label class="order-form-label">
+          Коментар*
+          <textarea
+            name="comment"
+            class="order-form-input form-control"
+            placeholder="Type your message..."
+            minlength="5"
+            required
+            rows="4"
+          ></textarea>
+        </label>
+        <div class="invalid-feedback">
+          <p class="body-text">Коментар має містити не менше 5 символів.</p>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" disabled>
+        Надіслати заявку
+      </button>
+    </form>
+    <div id="loader-modal" class="loader-modal visually-hidden"></div>
+  </div>
+</div>
